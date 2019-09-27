@@ -1,21 +1,25 @@
 <template>
   <div id="app">
-    <GamesLegacy msg="Welcome to Your Vue.js App"/>
+    <h1>Games Lists</h1>
   </div>
 </template>
 
 <script>
-import { XlsCsvParser } from 'vue-xls-csv-parser';
-import GamesLegacy from './components/GamesLegacy.vue'
+import Papa from 'papaparse'
 
 export default {
   name: 'app',
   components: {
-    XlsCsvParser,
-    GamesLegacy
   }
 }
 </script>
 
 <style>
+  body {
+    font-family: 'Roboto', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Roboto Condensed', sans-serif;
+  }
 </style>
