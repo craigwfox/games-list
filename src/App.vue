@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <h1>Games Lists</h1>
-    <GameTable tableName="Games Legacy"></GameTable>
+    <GameTable tableName="Games Legacy" :tableData="objGamesLegacy"></GameTable>
   </div>
 </template>
 
@@ -16,21 +16,22 @@ export default {
   },
   data() {
     return {
-      objGamesLegacy: {'dataobj': 'data'}
+      objGamesLegacy: {}
     }
   },
   mounted() {
-    this.objGamesLegacy = {
-      'mount': 'mounted'
-    };
-
-    Papa.parse('./assets/games-played-legacy.csv', {
-      complete: function(results) {
-        window.console.log(results);
-
-        this.objGamesLegacy = {
-          'parse': 'parsed'
+    Papa.parse('https://craigwfox.com/assets/test-csv.csv', {
+      download: true,
+      delimiter: ',',
+      newline: '\n',
+      complete: results => {
+        console.log(results.data)
+        let newobj = {
+          thead: {},
+          trows: {}
         };
+        newobj.thead = results.data[0]
+        this.objGamesLegacy = newobj;
       }
     });
   }

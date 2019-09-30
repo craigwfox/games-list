@@ -4,9 +4,9 @@
     <table>
       <thead>
         <tr>
-          <!-- <th v-for="value in testing">
+          <th v-for="value in tableData.thead">
             {{ value }}
-          </th> -->
+          </th>
         </tr>
       </thead>
       <tbody>
@@ -21,7 +21,7 @@ export default {
   name: 'GamesLegacy',
   props: {
     tableName: String,
-    tableCsv: Object
+    tableData: Object
   }
 }
 </script>
