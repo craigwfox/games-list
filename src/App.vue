@@ -25,33 +25,32 @@ export default {
       delimiter: ',',
       newline: '\n',
       complete: results => {
-        let newobj = {
+        let newobj = {};
 
+        const loopGames = gameArry => {
+          gameArry.forEach(gameName => {
+            if (gameName.length > 0) {
+              let arrayPos = gameArry.indexOf(gameName) + 1;
+
+              newobj[arrayPos].games.push(gameName);
+            }
+          });
         };
 
-        for(let i = 0; i < results.data[0].length; i++) {
-          let objId = i + 1;
-          newobj[objId] = {
-            id: objId,
-            name: results.data[0][i],
+        let consoleId = 0;
+        results.data[0].forEach(element => {
+          newobj[consoleId + 1] = {
+            id: consoleId + 1,
+            name: results.data[0][consoleId],
             games: []
-          }
+          };
+          consoleId += 1;
+        });
+
+        for (let i = 1; i < (results.data.length - 1); i++) {
+          const gameArry = results.data[i];
+          loopGames(gameArry);
         }
-
-        for(let i = 1; i < results.data.length; i++) {
-          let curGames = results.data[i],
-              gameArry = [];
-
-          for(let j = 0; j < curGames.length; j++) {
-            if(curGames[j].length > 0) {
-              gameArry.push(curGames[j]);
-            }
-          }
-
-          // newobj[i].games = gameArry;
-        }
-
-        window.console.log(results.data);
 
         this.objGamesLegacy = newobj;
       }
