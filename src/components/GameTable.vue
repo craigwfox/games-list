@@ -4,13 +4,17 @@
     <table>
       <thead>
         <tr>
-          <th v-for="value in tableData.thead">
-            {{ value }}
+          <th v-for="tableTh in tableData.thead">
+            {{ tableTh }}
           </th>
         </tr>
       </thead>
       <tbody>
-        <tr></tr>
+        <tr v-for="tableTr in tableData.trows">
+          <td v-for="tableTd in tableTr">
+            {{ tableTd }}
+          </td>
+        </tr>
       </tbody>
     </table>
   </div>

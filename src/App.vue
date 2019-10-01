@@ -25,12 +25,16 @@ export default {
       delimiter: ',',
       newline: '\n',
       complete: results => {
-        console.log(results.data)
         let newobj = {
-          thead: {},
-          trows: {}
+          thead: [],
+          trows: []
         };
-        newobj.thead = results.data[0]
+        newobj.thead = results.data[0];
+
+        for(let i = 1; i < results.data.length; i++) {
+          newobj.trows.push(results.data[i])
+        }
+
         this.objGamesLegacy = newobj;
       }
     });
