@@ -20,20 +20,38 @@ export default {
     }
   },
   mounted() {
-    Papa.parse('https://craigwfox.com/assets/test-csv.csv', {
+    Papa.parse('https://craigwfox.com/assets/games-played-legacy.csv', {
       download: true,
       delimiter: ',',
       newline: '\n',
       complete: results => {
         let newobj = {
-          thead: [],
-          trows: []
+          
         };
-        newobj.thead = results.data[0];
+
+        for(let i = 0; i < results.data[0].length; i++) {
+          let objId = i + 1;
+          newobj[objId] = {
+            id: objId,
+            name: results.data[0][i],
+            games: []
+          }
+        }
 
         for(let i = 1; i < results.data.length; i++) {
-          newobj.trows.push(results.data[i])
+          let curGames = results.data[i], 
+              gameArry = [];
+
+          for(let j = 0; j < curGames.length; j++) {
+            if(curGames[j].length > 0) {
+              gameArry.push(curGames[j]);
+            }
+          }
+
+          // newobj[i].games = gameArry;
         }
+        console.log(results.data);
+
 
         this.objGamesLegacy = newobj;
       }
