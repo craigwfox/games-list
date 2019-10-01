@@ -20,7 +20,7 @@ export default {
     }
   },
   mounted() {
-    Papa.parse('https://craigwfox.com/assets/games-played-legacy.csv', {
+    Papa.parse('https://raw.githubusercontent.com/craigwfox/games-list/master/src/assets/games-played-legacy.csv', {
       download: true,
       delimiter: ',',
       newline: '\n',
@@ -50,8 +50,8 @@ export default {
 
           // newobj[i].games = gameArry;
         }
-        console.log(results.data);
 
+        window.console.log(results.data);
 
         this.objGamesLegacy = newobj;
       }
