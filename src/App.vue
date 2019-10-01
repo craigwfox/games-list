@@ -26,7 +26,7 @@ export default {
       newline: '\n',
       complete: results => {
         let newobj = {
-          
+
         };
 
         for(let i = 0; i < results.data[0].length; i++) {
@@ -39,7 +39,7 @@ export default {
         }
 
         for(let i = 1; i < results.data.length; i++) {
-          let curGames = results.data[i], 
+          let curGames = results.data[i],
               gameArry = [];
 
           for(let j = 0; j < curGames.length; j++) {
