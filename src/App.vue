@@ -60,11 +60,41 @@ export default {
 </script>
 
 <style>
-  body {
-    font-family: 'Roboto', sans-serif;
-  }
+:root {
+  --clr-dark: #36393B;
+  --clr-link: #0CA5B0;
+}
 
-  h1, h2, h3, h4, h5, h6 {
-    font-family: 'Roboto Condensed', sans-serif;
-  }
+* {
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+
+  margin: 0;
+
+  font-family: 'Roboto', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Roboto Condensed', sans-serif;
+}
+
+#app {
+  min-height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+
+  padding: 1.5rem 1.5rem 0;
+}
+
+h1 {
+  margin: 0;
+}
 </style>
