@@ -77,11 +77,11 @@ export default {
 
     background: var(--clr-dark);
     border: 0;
-    border-bottom: 0.1rem solid var(--clr-link);
+    border-bottom: 0.1rem solid var(--clr-light-alt);
 
     cursor: pointer;
     line-height: 1;
-    color: var(--clr-link);
+    color: var(--clr-light-alt);
   }
 
   .game-list-nav button:last-child {
@@ -134,7 +134,7 @@ export default {
 
     margin: 0;
 
-    color: var(--clr-link);
+    color: var(--clr-primary);
     font-size: 1.2rem;
   }
 

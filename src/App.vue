@@ -62,7 +62,11 @@ export default {
 <style>
 :root {
   --clr-dark: #36393B;
-  --clr-link: #0CA5B0;
+  --clr-medium: #616668;
+  --clr-primary: #2B879E;
+  --clr-light: #98D9B6;
+  --clr-light-alt: #F2E8C4;
+  --clr-link: #3EC9A7;
   --ff-main: 'Roboto', sans-serif;
   --ff-cond: 'Roboto Condensed', sans-serif;
 }
