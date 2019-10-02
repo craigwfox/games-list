@@ -96,17 +96,61 @@ export default {
     border-top: 0.3rem solid var(--clr-dark);
   }
 
+  .game-list h3 {
+    margin: 0 0 0.5rem;
+
+    font-size: 1.7rem;
+  }
+
+  .game-list article {
+    display: grid;
+    grid-template-areas: "img heading"
+      "img details";
+    grid-template-columns: 5rem auto;
+    grid-template-rows: 1.5rem calc(100% - 1.5rem);
+    grid-column-gap: 1rem;
+
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+
+    border-bottom: 1px solid var(--clr-dark);
+  }
+
+  .game-list article:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+
+    border-bottom: 0;
+  }
+
+  .game-list img {
+    max-width: 100%;
+
+    grid-area: img;
+  }
+
+  .game-list h4 {
+    grid-area: heading;
+
+    margin: 0;
+
+    color: var(--clr-link);
+    font-size: 1.2rem;
+  }
+
   .game-list ul {
+    grid-area: details;
+
     margin: 0;
     padding: 0;
 
+    font-size: 1rem;
     list-style-type: none;
-
-    transition: max-height .1s ease-in-out;
   }
 
-  .game-list li {
-    font-size: 1.1rem;
-    line-height: 1.3;
+  .game-list li {}
+
+  .game-list strong {
+    font-family: var(--ff-cond);
   }
 </style>
