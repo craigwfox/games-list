@@ -7,11 +7,20 @@
     </div>
 
     <div class="game-list">
-      <div v-for="gameconsole in tableData" :value="gameconsole.id" :key="gameconsole.id">
-        <ul v-if="gameconsole.games.length > 0" v-show="gameListActive === gameconsole.id">
-          <li v-for="game in gameconsole.games" :key="game">{{game}}</li>
-        </ul>
-      </div>
+      <section v-for="gameconsole in tableData" :value="gameconsole.id" :key="gameconsole.id">
+
+        <h3 v-show="gameListActive === gameconsole.id">{{gameconsole.name}}</h3>
+        <article v-show="gameListActive === gameconsole.id" v-for="game in gameconsole.games" :key="game">
+          <img src="../assets/placeholder-thumb.jpg" alt="">
+          <h4>{{game}}</h4>
+          <ul>
+            <li><strong>Year Released:</strong> 1984-04-21</li>
+            <li><strong>Year Played:</strong> Legacy</li>
+            <li><strong>Developer:</strong> Nintendo</li>
+          </ul>
+        </article>
+
+      </section>
     </div>
 
   </div>
@@ -59,6 +68,7 @@ export default {
     flex-direction: column;
 
     background: var(--clr-dark);
+    border-top: 0.3rem solid var(--clr-dark);
   }
 
   .game-list-nav button {
@@ -81,7 +91,9 @@ export default {
   .game-list {
     grid-area: list;
 
-    padding: 0 2rem 2rem;
+    padding: 1rem 2rem 2rem;
+
+    border-top: 0.3rem solid var(--clr-dark);
   }
 
   .game-list ul {

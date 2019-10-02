@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <h1>Games Lists</h1>
+    <h1>Games Played</h1>
     <GameTable tableName="Games Legacy" :tableData="objGamesLegacy"></GameTable>
   </div>
 </template>
@@ -63,6 +63,8 @@ export default {
 :root {
   --clr-dark: #36393B;
   --clr-link: #0CA5B0;
+  --ff-main: 'Roboto', sans-serif;
+  --ff-cond: 'Roboto Condensed', sans-serif;
 }
 
 * {
@@ -78,11 +80,12 @@ body {
 
   margin: 0;
 
-  font-family: 'Roboto', sans-serif;
+  font-family: var(--ff-main);
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Roboto Condensed', sans-serif;
+  color: var(--clr-dark);
+  font-family: var(--ff-cond);
 }
 
 #app {
