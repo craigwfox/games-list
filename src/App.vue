@@ -1,60 +1,17 @@
 <template>
   <div id="app">
     <h1>Games Played</h1>
-    <GameTable tableName="Games Legacy" :tableData="objGamesLegacy"></GameTable>
+    <GameList listName="Games Legacy" listData="https://raw.githubusercontent.com/craigwfox/games-list/master/src/assets/games-played-legacy.csv"></GameList>
   </div>
 </template>
 
 <script>
-import Papa from 'papaparse';
-import GameTable from './components/GameTable.vue';
+import GameList from './components/GameList.vue';
 
 export default {
   name: 'app',
   components: {
-    GameTable
-  },
-  data() {
-    return {
-      objGamesLegacy: {}
-    }
-  },
-  mounted() {
-    Papa.parse('https://raw.githubusercontent.com/craigwfox/games-list/master/src/assets/games-played-legacy.csv', {
-      download: true,
-      delimiter: ',',
-      newline: '\n',
-      complete: results => {
-        let newobj = {};
-
-        const loopGames = gameArry => {
-          gameArry.forEach(gameName => {
-            if (gameName.length > 0) {
-              let arrayPos = gameArry.indexOf(gameName) + 1;
-
-              newobj[arrayPos].games.push(gameName);
-            }
-          });
-        };
-
-        let consoleId = 0;
-        results.data[0].forEach(() => {
-          newobj[consoleId + 1] = {
-            id: consoleId + 1,
-            name: results.data[0][consoleId],
-            games: []
-          };
-          consoleId += 1;
-        });
-
-        for (let i = 1; i < (results.data.length - 1); i++) {
-          const gameArry = results.data[i];
-          loopGames(gameArry);
-        }
-
-        this.objGamesLegacy = newobj;
-      }
-    });
+    GameList
   }
 }
 </script>

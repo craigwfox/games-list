@@ -1,13 +1,13 @@
 <template>
   <div class="game-table">
-    <h2>{{tableName}}</h2>
+    <h2>{{listName}}</h2>
 
     <div class="game-list-nav">
-      <button v-for="gameconsole in tableData" :value="gameconsole.id" :key="gameconsole.id" v-on:click="gameListActive = gameconsole.id">{{gameconsole.name}}</button>
+      <button v-for="gameconsole in objGamesData" :value="gameconsole.id" :key="gameconsole.id" v-on:click="gameListActive = gameconsole.id">{{gameconsole.name}}</button>
     </div>
 
     <div class="game-list">
-      <section v-for="gameconsole in tableData" :value="gameconsole.id" :key="gameconsole.id">
+      <section v-for="gameconsole in objGamesData" :value="gameconsole.id" :key="gameconsole.id">
 
         <h3 v-show="gameListActive === gameconsole.id">{{gameconsole.name}}</h3>
         <article v-show="gameListActive === gameconsole.id" v-for="game in gameconsole.games" :key="game">
@@ -27,16 +27,56 @@
 </template>
 
 <script>
+import Papa from 'papaparse';
+
 export default {
-  name: 'GamesLegacy',
+  name: 'GameList',
   props: {
-    tableName: String,
-    tableData: Object
+    listName: String,
+    listData: String
   },
   data () {
     return {
       gameListActive: null,
+      objGamesData: {}
     }
+  },
+  mounted() {
+    Papa.parse(this.listData, {
+      download: true,
+      delimiter: ',',
+      newline: '\n',
+      complete: results => {
+        let newobj = {};
+
+        const loopGames = gameArry => {
+          gameArry.forEach(gameName => {
+            if (gameName.length > 0) {
+              let arrayPos = gameArry.indexOf(gameName) + 1;
+
+              newobj[arrayPos].games.push(gameName);
+            }
+          });
+        };
+
+        let consoleId = 0;
+        results.data[0].forEach(() => {
+          newobj[consoleId + 1] = {
+            id: consoleId + 1,
+            name: results.data[0][consoleId],
+            games: []
+          };
+          consoleId += 1;
+        });
+
+        for (let i = 1; i < (results.data.length - 1); i++) {
+          const gameArry = results.data[i];
+          loopGames(gameArry);
+        }
+
+        this.objGamesData = newobj;
+      }
+    });
   }
 }
 </script>
