@@ -47,29 +47,34 @@ export default {
       delimiter: ',',
       newline: '\n',
       complete: results => {
+        function isEven(n) {
+          return n % 2 == 0;
+        }
+
         let newobj = {};
 
         const loopGames = gameArry => {
-          gameArry.forEach(gameName => {
-            if (gameName.length > 0) {
-              let arrayPos = gameArry.indexOf(gameName) + 1;
+          for (let i = 0; i < gameArry.length; i++) {
+            if (gameArry[i].length > 0 && isEven(gameArry.indexOf(gameArry[i]))) {
+              let gameName = gameArry[i],
+                consoleId = results.data[0][i + 1];
 
-              newobj[arrayPos].games.push(gameName);
+              newobj[consoleId].games.push(gameName);
             }
-          });
+          }
         };
 
-        let consoleId = 0;
-        results.data[0].forEach(() => {
-          newobj[consoleId + 1] = {
-            id: consoleId + 1,
-            name: results.data[0][consoleId],
-            games: []
-          };
-          consoleId += 1;
-        });
+        for(let i = 0; i < results.data[0].length; i++) {
+          if (isEven(results.data[0].indexOf(results.data[0][i]))) {
+            newobj[results.data[0][i + 1]] = {
+              id: results.data[0][i + 1],
+              name: results.data[0][i],
+              games: []
+            };
+          }
+        }
 
-        for (let i = 1; i < (results.data.length - 1); i++) {
+        for (let i = 3; i < (results.data.length); i++) {
           const gameArry = results.data[i];
           loopGames(gameArry);
         }
