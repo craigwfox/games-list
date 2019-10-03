@@ -38,7 +38,7 @@ export default {
         };
 
         let consoleId = 0;
-        results.data[0].forEach(element => {
+        results.data[0].forEach(() => {
           newobj[consoleId + 1] = {
             id: consoleId + 1,
             name: results.data[0][consoleId],
