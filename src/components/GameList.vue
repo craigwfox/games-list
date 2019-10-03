@@ -88,7 +88,7 @@ export default {
 
 <style scoped>
   .game-table {
-    flex-grow: 1;
+    /* flex-grow: 1; */
     display: grid;
 
     grid-template-areas: "header header"

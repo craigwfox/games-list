@@ -1,7 +1,9 @@
 <template>
   <div id="app">
     <h1>Games Played</h1>
-    <GameList listName="Games Legacy" listData="https://raw.githubusercontent.com/craigwfox/games-list/master/src/assets/games-played-2018.csv"></GameList>
+    <GameList listName="Games Legacy" listData="https://raw.githubusercontent.com/craigwfox/games-list/master/src/assets/games-played-legacy.csv"></GameList>
+    <GameList listName="Games Played 2018" listData="https://raw.githubusercontent.com/craigwfox/games-list/master/src/assets/games-played-2018.csv"></GameList>
+    <GameList listName="Games Played 2019" listData="https://raw.githubusercontent.com/craigwfox/games-list/master/src/assets/games-played-2019.csv"></GameList>
   </div>
 </template>
 
