@@ -10,13 +10,16 @@
       <section v-for="gameconsole in objGamesData" :value="gameconsole.id" :key="gameconsole.id">
 
         <h3 v-show="gameListActive === gameconsole.id">{{gameconsole.name}}</h3>
-        <article v-show="gameListActive === gameconsole.id" v-for="game in gameconsole.games" :key="game">
+        <article v-show="gameListActive === gameconsole.id" v-for="game in gameconsole.games" :key="game.slug">
           <img src="../assets/placeholder-thumb.jpg" alt="">
-          <h4>{{game}}</h4>
+          <h4>{{game.name}}</h4>
           <ul>
-            <li><strong>Year Released:</strong> 1984-04-21</li>
-            <li><strong>Year Played:</strong> Legacy</li>
-            <li><strong>Developer:</strong> Nintendo</li>
+            <li><strong>Year Released:</strong> {{game.release}}</li>
+            <li><strong>Year Played:</strong> {{game.yearplayed}}</li>
+            <li><strong>Developer:</strong> {{game.dev}}</li>
+            <li><strong>Genres:</strong>
+              <span v-for="genre in game.genres" :key="genre">{{genre}} </span>
+            </li>
           </ul>
         </article>
 
@@ -27,12 +30,18 @@
 </template>
 
 <script>
+import Vue from 'vue';
 import Papa from 'papaparse';
+import axios from 'axios';
+import VueAxios from 'vue-axios';
+
+Vue.use(VueAxios, axios);
 
 export default {
   name: 'GameList',
   props: {
     listName: String,
+    listYear: String,
     listData: String
   },
   data () {
@@ -57,9 +66,22 @@ export default {
           for (let i = 0; i < gameArry.length; i++) {
             if (gameArry[i].length > 0 && isEven(gameArry.indexOf(gameArry[i]))) {
               let gameName = gameArry[i],
+                gameNameEncode = encodeURIComponent(gameName),
                 consoleId = results.data[0][i + 1];
 
-              newobj[consoleId].games.push(gameName);
+              axios.get(`https://api.rawg.io/api/games?page_size=5&search=${gameNameEncode}`)
+                .then(response => {
+                  let apiresult = response.data.results[0];
+                  
+                  newobj[consoleId].games.push({
+                    name: gameName,
+                    slug: apiresult.slug,
+                    release: apiresult.released,
+                    yearplayed: this.listYear,
+                    dev: '---',
+                    genres: ['rpg', 'action', 'mmo']
+                  });
+                });
             }
           }
         };

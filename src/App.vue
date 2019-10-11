@@ -2,7 +2,7 @@
   <div id="app">
     <h1>Games Played</h1>
     <!-- <GameList listName="Games Legacy" listData="https://docs.google.com/spreadsheets/d/e/2PACX-1vQzOeOw6b1LxtAYkrWgRmHkzzkSiBHRKUOTVTQIIzDQBffbgiHpSIE9u7strU7UXBt9KihJ2BylEr1K/pub?gid=91455929&single=true&output=csv"></GameList> -->
-    <GameList listName="Games Played 2018" listData="https://docs.google.com/spreadsheets/d/e/2PACX-1vQzOeOw6b1LxtAYkrWgRmHkzzkSiBHRKUOTVTQIIzDQBffbgiHpSIE9u7strU7UXBt9KihJ2BylEr1K/pub?gid=600159630&single=true&output=csv"></GameList>
+    <GameList listName="Games Played 2018" listYear="2018" listData="https://docs.google.com/spreadsheets/d/e/2PACX-1vQzOeOw6b1LxtAYkrWgRmHkzzkSiBHRKUOTVTQIIzDQBffbgiHpSIE9u7strU7UXBt9KihJ2BylEr1K/pub?gid=600159630&single=true&output=csv"></GameList>
     <!-- <GameList listName="Games Played 2019" listData="https://docs.google.com/spreadsheets/d/e/2PACX-1vQzOeOw6b1LxtAYkrWgRmHkzzkSiBHRKUOTVTQIIzDQBffbgiHpSIE9u7strU7UXBt9KihJ2BylEr1K/pub?gid=678145732&single=true&output=csv"></GameList> -->
   </div>
 </template>
