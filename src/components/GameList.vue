@@ -72,7 +72,7 @@ export default {
               axios.get(`https://api.rawg.io/api/games?page_size=5&search=${gameNameEncode}`)
                 .then(response => {
                   let apiresult = response.data.results[0];
-                  
+
                   newobj[consoleId].games.push({
                     name: gameName,
                     slug: apiresult.slug,
@@ -96,7 +96,7 @@ export default {
           }
         }
 
-        for (let i = 3; i < (results.data.length); i++) {
+        for (let i = 4; i < (results.data.length); i++) {
           const gameArry = results.data[i];
           loopGames(gameArry);
         }

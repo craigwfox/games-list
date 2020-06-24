@@ -1,9 +1,10 @@
 <template>
   <div id="app">
     <h1>Games Played</h1>
-    <!-- <GameList listName="Games Legacy" listData="https://docs.google.com/spreadsheets/d/e/2PACX-1vQzOeOw6b1LxtAYkrWgRmHkzzkSiBHRKUOTVTQIIzDQBffbgiHpSIE9u7strU7UXBt9KihJ2BylEr1K/pub?gid=91455929&single=true&output=csv"></GameList> -->
-    <GameList listName="Games Played 2018" listYear="2018" listData="https://docs.google.com/spreadsheets/d/e/2PACX-1vQzOeOw6b1LxtAYkrWgRmHkzzkSiBHRKUOTVTQIIzDQBffbgiHpSIE9u7strU7UXBt9KihJ2BylEr1K/pub?gid=600159630&single=true&output=csv"></GameList>
-    <!-- <GameList listName="Games Played 2019" listData="https://docs.google.com/spreadsheets/d/e/2PACX-1vQzOeOw6b1LxtAYkrWgRmHkzzkSiBHRKUOTVTQIIzDQBffbgiHpSIE9u7strU7UXBt9KihJ2BylEr1K/pub?gid=678145732&single=true&output=csv"></GameList> -->
+    <GameList listName="Games Played 2020" listYear="2020" listData="./csv/Gaming - Games to Play - 2020_Played.csv"></GameList>
+    <!-- <GameList listName="Games Played 2019" listYear="2019" listData="./csv/Gaming - Games to Play - 2019_Played.csv"></GameList> -->
+    <!-- <GameList listName="Games Played 2018" listYear="2018" listData="./csv/Gaming - Games to Play - 2018_Played.csv"></GameList> -->
+    <!-- <GameList listName="Games Played Legacy" listYear="< 2018" listData="./csv/Gaming - Games to Play - Played_Legacy.csv"></GameList> -->
   </div>
 </template>
 
