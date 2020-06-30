@@ -18,7 +18,7 @@
             <li><strong>Year Played:</strong> {{game.yearplayed}}</li>
             <li><strong>Developer:</strong> {{game.dev}}</li>
             <li><strong>Genres:</strong>
-              <span v-for="genre in game.genres" :key="genre">{{genre}} </span>
+              {{ game.genres.join(', ') }}
             </li>
           </ul>
         </article>
@@ -62,35 +62,47 @@ export default {
 
         let newobj = {};
 
+        const collectGenres = function(inputGenreArry) {
+          let genreArry = [];
+
+          inputGenreArry.forEach(element => {
+            genreArry.push(element.name);
+          });
+
+          return genreArry;
+        };
+
+
         const loopGames = gameArry => {
           for (let i = 0; i < gameArry.length; i++) {
             if (gameArry[i].length > 0 && isEven(gameArry.indexOf(gameArry[i]))) {
               let gameName = gameArry[i],
                 gameNameEncode = encodeURIComponent(gameName),
-                consoleId = results.data[0][i + 1];
+                consoleId = results.data[1][i + 1];
 
               axios.get(`https://api.rawg.io/api/games?page_size=5&search=${gameNameEncode}`)
                 .then(response => {
                   let apiresult = response.data.results[0];
+
 
                   newobj[consoleId].games.push({
                     name: gameName,
                     slug: apiresult.slug,
                     release: apiresult.released,
                     yearplayed: this.listYear,
-                    dev: '---',
-                    genres: ['rpg', 'action', 'mmo']
+                    dev: 'stupid api',
+                    genres: collectGenres(apiresult.genres)
                   });
                 });
             }
           }
         };
 
-        for(let i = 0; i < results.data[0].length; i++) {
-          if (isEven(results.data[0].indexOf(results.data[0][i]))) {
-            newobj[results.data[0][i + 1]] = {
-              id: results.data[0][i + 1],
-              name: results.data[0][i],
+        for(let i = 0; i < results.data[1].length; i++) {
+          if (isEven(results.data[1].indexOf(results.data[1][i]))) {
+            newobj[results.data[1][i + 1]] = {
+              id: results.data[1][i + 1],
+              name: results.data[1][i],
               games: []
             };
           }
