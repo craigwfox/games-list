@@ -112,7 +112,7 @@ export default {
                 gameNameEncode = encodeURIComponent(gameName),
                 consoleId = results.data[1][i + 1];
 
-              axios.get(`https://api.rawg.io/api/games?page_size=5&search=${gameNameEncode}`)
+              axios.get(`https://api.rawg.io/api/games?page_size=1&search=${gameNameEncode}`)
                 .then(response => {
                   let apiresult = response.data.results[0];
 
@@ -123,7 +123,8 @@ export default {
                     release: apiresult.released,
                     yearplayed: this.listYear,
                     dev: 'stupid api',
-                    genres: collectGenres(apiresult.genres)
+                    genres: collectGenres(apiresult.genres),
+                    backgound: apiresult.backgroud_image
                   });
                 });
             }
