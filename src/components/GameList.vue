@@ -14,7 +14,7 @@
           <img src="../assets/placeholder-thumb.jpg" alt="">
           <h4>{{game.name}}</h4>
           <ul>
-            <li><strong>Year Released:</strong> {{game.release}}</li>
+            <li><strong>Year Released:</strong> {{game.release | dateFormat('MM/DD/YY') }}</li>
             <li><strong>Year Played:</strong> {{game.yearplayed}}</li>
             <li><strong>Developer:</strong> {{game.dev}}</li>
             <li><strong>Genres:</strong>
@@ -43,6 +43,38 @@ export default {
     listName: String,
     listYear: String,
     listData: String
+  },
+  filters: {
+    dateFormat: function(value, format) {
+
+      if (value) {
+        value = value.split("-");
+        format = format.split("/");
+
+        let vYear = value[0],
+            vMonth = value[1],
+            vDay = value[2];
+
+        let dfPos = [
+          format[0],
+          format[1],
+          format[2]
+        ];
+
+        let datePretty = [];
+        for (let i = 0; i < 3; i++) {
+          if (dfPos[i] === 'MM') {
+            datePretty.push(vMonth)
+          } else if (dfPos[i] === 'DD') {
+            datePretty.push(vDay)
+          } else if (dfPos[i] === 'YY') {
+            datePretty.push(vYear)
+          }
+        }
+
+        return `${datePretty[0]}/${datePretty[1]}/${datePretty[2]}`;
+      }
+    }
   },
   data () {
     return {
