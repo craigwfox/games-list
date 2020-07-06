@@ -104,8 +104,23 @@ export default {
           return genreArry;
         };
 
+        const addConsoles = gameArry => {
+          for (let i = 0; i < gameArry.length; i++) {
+            if (gameArry[i].length > 0 && isEven(gameArry.indexOf(gameArry[i]))) {
+              let consoleId = results.data[1][i + 1];
 
-        const loopGames = gameArry => {
+              if (!newobj[consoleId]) {
+                newobj[consoleId] = {
+                  id: results.data[1][i + 1],
+                  name: results.data[1][i],
+                  games: []
+                };
+              }
+            }
+          }
+        };
+
+        const addGames = gameArry => {
           for (let i = 0; i < gameArry.length; i++) {
             if (gameArry[i].length > 0 && isEven(gameArry.indexOf(gameArry[i]))) {
               let gameName = gameArry[i],
@@ -115,7 +130,6 @@ export default {
               axios.get(`https://api.rawg.io/api/games?page_size=1&search=${gameNameEncode}`)
                 .then(response => {
                   let apiresult = response.data.results[0];
-
 
                   newobj[consoleId].games.push({
                     name: gameName,
@@ -131,22 +145,18 @@ export default {
           }
         };
 
-        for(let i = 0; i < results.data[1].length; i++) {
-          if (isEven(results.data[1].indexOf(results.data[1][i]))) {
-            newobj[results.data[1][i + 1]] = {
-              id: results.data[1][i + 1],
-              name: results.data[1][i],
-              games: []
-            };
+        const loopGames = function(cb) {
+          for (let i = 4; i < (results.data.length); i++) {
+            const gameArry = results.data[i];
+            addConsoles(gameArry);
+            addGames(gameArry);
           }
+          cb();
         }
 
-        for (let i = 4; i < (results.data.length); i++) {
-          const gameArry = results.data[i];
-          loopGames(gameArry);
-        }
-
-        this.objGamesData = newobj;
+        loopGames(()=> {
+          this.objGamesData = newobj;
+        });
       }
     });
   }
