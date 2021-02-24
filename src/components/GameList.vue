@@ -7,11 +7,11 @@
     </div>
 
     <div class="game-list">
-      <section v-for="gameconsole in objGamesData" :value="gameconsole.id" :key="gameconsole.id">
+      <section class="game-list__console" v-for="gameconsole in objGamesData" :value="gameconsole.id" :key="gameconsole.id">
 
         <h3 v-show="gameListActive === gameconsole.id">{{gameconsole.name}}</h3>
         <article v-show="gameListActive === gameconsole.id" v-for="game in gameconsole.games" :key="game.slug">
-          <img src="../assets/placeholder-thumb.jpg" alt="">
+          <span class="img" aria-hiden="true" :style="`background-image: url('` + game.backgound + `')`"></span>
           <h4>{{game.name}}</h4>
           <ul>
             <li><strong>Year Released:</strong> {{game.release | dateFormat('MM/DD/YY') }}</li>
@@ -138,7 +138,7 @@ export default {
                     yearplayed: this.listYear,
                     dev: 'stupid api',
                     genres: collectGenres(apiresult.genres),
-                    backgound: apiresult.backgroud_image
+                    backgound: apiresult.background_image
                   });
                 });
             }
@@ -195,7 +195,7 @@ export default {
 
   .game-list-nav button {
     margin: 0;
-    padding: 1rem 1rem;
+    padding: 1rem;
 
     background: var(--clr-dark);
     border: 0;
@@ -219,40 +219,52 @@ export default {
   }
 
   .game-list h3 {
-    margin: 0 0 0.5rem;
+    grid-column: 1 / 3;
+    grid-row: 1;
+    margin: 0;
 
     font-size: 1.7rem;
   }
 
+  .game-list__console {
+    display: grid;
+    grid-auto-columns: 1fr;
+    grid-auto-rows: auto;
+    column-gap: 3rem;
+    row-gap: 1rem;
+  }
+
   .game-list article {
     display: grid;
-    grid-template-areas: "img heading"
-      "img details";
-    grid-template-columns: 5rem auto;
-    grid-template-rows: 1.5rem calc(100% - 1.5rem);
-    grid-column-gap: 1rem;
+    grid-template-columns: 7rem auto;
+    grid-template-rows: auto auto;
 
+    position: relative;
+
+    padding-bottom: 2rem;
     margin-bottom: 1rem;
-    padding-bottom: 1rem;
 
     border-bottom: 1px solid var(--clr-dark);
   }
+  
+  .game-list .img {
+    grid-column: 1;
+    grid-row: 1 / 3;
 
-  .game-list article:last-child {
-    margin-bottom: 0;
-    padding-bottom: 0;
+    display: block;
 
-    border-bottom: 0;
-  }
+    margin-right: 1rem;
 
-  .game-list img {
-    max-width: 100%;
-
-    grid-area: img;
+    background-size: cover;
+    background-position: center;
   }
 
   .game-list h4 {
-    grid-area: heading;
+    grid-column: 2;
+    grid-row: 1;
+
+    position: relative;
+    z-index: 2;
 
     margin: 0;
 
@@ -261,7 +273,11 @@ export default {
   }
 
   .game-list ul {
-    grid-area: details;
+    grid-column: 2;
+    grid-row: 2;
+
+    position: relative;
+    z-index: 2;
 
     margin: 0;
     padding: 0;
