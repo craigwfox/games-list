@@ -2,7 +2,7 @@
 	import { page } from '$app/stores';
 </script>
 
-<header>
+<header class="site-header">
 	<nav>
 		<ul>
 			<li class:active={$page.path === '/'}><a sveltekit:prefetch href="/">Home</a></li>

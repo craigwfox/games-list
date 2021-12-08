@@ -10,5 +10,5 @@
 </svelte:head>
 
 <section>
-	<h1>stuff</h1>
+	<h1>This is a page of pagey stuff</h1>
 </section>

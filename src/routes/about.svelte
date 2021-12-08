@@ -18,7 +18,9 @@
 	<title>About</title>
 </svelte:head>
 
-<div class="content" />
+<div class="content">
+	<h1>About this here games list</h1>
+</div>
 
 <style>
 </style>
