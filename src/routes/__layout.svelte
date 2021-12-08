@@ -48,7 +48,7 @@
 
 <footer class="site-footer">
   <p>
-    &copy; 2021 <a href="https://craigwfox.com">Craig Fox</a>
+    &copy; {new Date().getFullYear()} <a href="https://craigwfox.com">Craig Fox</a>
     <img src="./images/fox-icon.svg" alt="Illustration of fox head" />
     Built using SvelteKit
   </p>
