@@ -8,7 +8,7 @@
 // Links
 // ====---------------====
 a {
-  --link-clr: var(--clr-link);
+  --link-clr: var(--c-link);
 
   cursor: pointer;
   color: hsl(var(--link-clr));
@@ -19,19 +19,19 @@ a {
 
   &:hover,
   &:focus {
-    --link-clr: var(--clr-bright);
+    --link-clr: var(--c-bright);
   }
 }
 
 .btn {
-  --link-clr: var(--clr-dark);
+  --link-clr: var(--c-dark);
 
   display: flex;
 
   padding: 0 0.5rem;
 
   border-radius: 3rem;
-  background: hsl(var(--clr-link));
+  background: hsl(var(--c-link));
 
   font-size: clamp(0.8rem, 5vw, 1rem);
   font-weight: 700;
@@ -40,8 +40,8 @@ a {
 
   &:hover,
   &:focus {
-    --link-clr: var(--clr-dark);
-    background: hsl(var(--clr-bright));
+    --link-clr: var(--c-dark);
+    background: hsl(var(--c-bright));
   }
 }
 
@@ -55,7 +55,7 @@ p {
 .disclaimer {
   margin-top: var(--sp-sm);
 
-  color: hsl(var(--clr-text-base) / 0.8);
+  color: hsl(var(--c-text-base) / 0.8);
   font-size: 0.8rem;
   font-style: italic;
 }

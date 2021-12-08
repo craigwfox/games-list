@@ -8,96 +8,96 @@
 // Globals
 // ====---------------====
 .skipLink {
-	white-space: nowrap;
-	margin: 1em auto;
-	top: 0;
-	position: fixed;
-	left: 50%;
-	margin-left: -72px;
-	opacity: 0;
+  white-space: nowrap;
+  margin: 1em auto;
+  top: 0;
+  position: fixed;
+  left: 50%;
+  margin-left: -72px;
+  opacity: 0;
 }
 
 .skipLink:focus {
-	opacity: 1;
-	background-color: #fff;
-	padding: 0.5em;
-	border: 1px solid black;
+  opacity: 1;
+  background-color: #fff;
+  padding: 0.5em;
+  border: 1px solid black;
 }
 
 .sr-only {
-	width: 1px !important;
-	height: 1px !important;
-	position: absolute !important;
-	padding: 0 !important;
-	margin: -1px !important;
-	overflow: hidden !important;
-	clip: rect(0, 0, 0, 0) !important;
-	white-space: nowrap !important;
-	border: 0 !important;
+  width: 1px !important;
+  height: 1px !important;
+  position: absolute !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
 }
 
 // ====---------------====
 // App wrapper
 // ====---------------====
 html {
-	height: 100%;
-	font-size: 10px;
-	font-family: var(--ff-base);
+  height: 100%;
+  font-size: 10px;
+  font-family: var(--ff-base);
 }
 
 body {
-	min-height: 100vh;
-	color: #fff;
-	font-size: var(--fs-base);
+  min-height: 100vh;
+  color: var(--c-text-base);
+  font-size: var(--fs-base);
 }
 
 #svelte {
-	min-height: 100vh;
-	display: grid;
-	grid-template-rows: auto 1fr auto;
-	background: var(--clr-bg);
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  background: var(--c-bg);
 }
 
 // ====---------------====
 // Loading
 // ====---------------====
 @keyframes loadingAnimation {
-	to {
-		width: 3.5rem;
-	}
+  to {
+    width: 3.5rem;
+  }
 }
 
 .loading {
-	width: 24rem;
+  width: 24rem;
 
-	display: flex;
-	margin: 0 auto;
+  display: flex;
+  margin: 0 auto;
 
-	color: var(--clr-main);
-	font-size: 4rem;
-	font-family: var(--ff-accent);
-	font-weight: 700;
-	text-align: left;
+  color: var(--c-main);
+  font-size: 4rem;
+  font-family: var(--ff-accent);
+  font-weight: 700;
+  text-align: left;
 }
 
 .loading::after {
-	content: '\2026';
+  content: '\2026';
 
-	width: 0;
-	overflow: hidden;
+  width: 0;
+  overflow: hidden;
 
-	display: flex;
-	animation: 0.9s steps(4, end) infinite loadingAnimation;
+  display: flex;
+  animation: 0.9s steps(4, end) infinite loadingAnimation;
 }
 
 // ====---------------====
 // Main
 // ====---------------====
 .main {
-	padding: 4rem 2rem 8rem;
-	background: var(--clr-bg);
+  padding: 4rem 2rem 8rem;
+  background: var(--c-bg);
 }
 
 .main h1 {
-	margin-top: 0;
+  margin-top: 0;
 }

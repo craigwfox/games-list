@@ -6,9 +6,11 @@
 .site-footer {
   display: grid;
   place-content: center;
-  padding: 2rem;
-  background: #1e1e1e;
+  padding: 5rem 2rem;
+  background: var(--c-dark);
   text-align: center;
+
+  color: var(--c-light);
 
   img {
     width: 3rem;
@@ -16,6 +18,19 @@
     display: inline-block;
     vertical-align: middle;
 
-    margin: 0 0.7rem;
+    margin: 0 0.5rem;
+  }
+
+  p {
+    margin-bottom: 0;
+  }
+
+  a {
+    color: var(--c-main);
+
+    &:hover,
+    &:focus {
+      color: var(--c-bg-light);
+    }
   }
 }

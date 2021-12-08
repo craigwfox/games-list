@@ -48,7 +48,8 @@
 
 <footer class="site-footer">
   <p>
-    &copy; <a href="https://craigwfox.com">Craig Fox</a>
-    <img src="./images/fox-icon.svg" alt="Illustration of fox head" /> 2021
+    &copy; 2021 <a href="https://craigwfox.com">Craig Fox</a>
+    <img src="./images/fox-icon.svg" alt="Illustration of fox head" />
+    Built using SvelteKit
   </p>
 </footer>

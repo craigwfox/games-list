@@ -27,11 +27,11 @@
 .game-filters select {
   padding: 0.75rem;
 
-  border: 2px solid var(--clr-main);
-  background: var(--clr-bg);
+  border: 2px solid var(--c-main);
+  background: var(--c-bg);
   border-radius: 0.7rem;
 
-  color: var(--clr-light);
+  color: var(--c-light);
   font-family: var(--ff-base);
   font-size: var(--fs-base);
   font-weight: 700;
@@ -39,33 +39,33 @@
 }
 
 .game-filters option {
-  color: var(--clr-light);
-  background: var(--clr-bg);
+  color: var(--c-light);
+  background: var(--c-bg);
 }
 
 .game-filters option.bad {
-  color: var(--clr-r-bad);
+  color: var(--c-r-bad);
 }
 
 .game-filters option.meh {
-  color: var(--clr-r-meh);
+  color: var(--c-r-meh);
 }
 
 .game-filters option.good {
-  color: var(--clr-r-good);
+  color: var(--c-r-good);
 }
 
 .game-filters option.great {
-  color: var(--clr-r-great);
+  color: var(--c-r-great);
 }
 
 .game-filters option.goat {
-  color: var(--clr-r-goat);
+  color: var(--c-r-goat);
 }
 
 .game-filters option:hover,
 .game-filters option:focus {
-  background: var(--clr-main-dark);
+  background: var(--c-main-dark);
 }
 
 .game-count {
@@ -73,5 +73,5 @@
 
   margin: 4rem 0 2rem;
 
-  color: var(--clr-bg-light);
+  color: var(--c-bg-light);
 }

@@ -35,28 +35,30 @@
   --card-gap: 0.7rem;
 
   display: grid;
-  grid-template-areas: "tag tag"
-    "img title"
-    "img rating"
-    "img date"
-    "img link"
-    "img filler";
+  grid-template-areas:
+    'tag tag'
+    'img title'
+    'img rating'
+    'img date'
+    'img link'
+    'img filler';
   grid-template-columns: minmax(auto, 15rem) 2fr;
   grid-template-rows: repeat(4, auto) 1fr;
   gap: var(--card-gap) calc(var(--card-gap) * 3);
   overflow: hidden;
-  background: var(--clr-main-dark);
+  background: var(--c-main-dark);
   border-radius: 1rem;
 }
 
 @media (min-width: 650px) {
   .game-card {
-    grid-template-areas: "tag tag"
-    "img title"
-    "img rating"
-    "img date"
-    "img link"
-    "img filler";
+    grid-template-areas:
+      'tag tag'
+      'img title'
+      'img rating'
+      'img date'
+      'img link'
+      'img filler';
   }
 }
 
@@ -77,31 +79,31 @@
   grid-area: tag;
   margin: 0 0 calc(var(--card-gap) * -1);
   padding: var(--card-pad-v) var(--card-pad-h);
-  background: var(--clr-alt);
+  background: var(--c-alt);
   font-size: 1.6rem;
 }
 
 .gc__tag--pc {
-  background: var(--clr-pc);
+  background: var(--c-pc);
 }
 
-p[class^="gc__tag gc__tag--x"] {
-  background: var(--clr-xb);
+p[class^='gc__tag gc__tag--x'] {
+  background: var(--c-xb);
 }
 
-p[class^="gc__tag gc__tag--n"] {
-  background: var(--clr-ni);
+p[class^='gc__tag gc__tag--n'] {
+  background: var(--c-ni);
 }
 
-p[class^="gc__tag gc__tag--ps"] {
-  background: var(--clr-ps);
+p[class^='gc__tag gc__tag--ps'] {
+  background: var(--c-ps);
 }
 
 .gc__title {
   grid-area: title;
   margin: 0;
   padding-top: var(--card-pad-v);
-  color: var(--clr-light);
+  color: var(--c-light);
   font-size: clamp(1.8rem, 3vw, 2.3rem);
 }
 
@@ -120,23 +122,23 @@ p[class^="gc__tag gc__tag--ps"] {
 }
 
 .gc__rating__bad {
-  color: var(--clr-r-bad);
+  color: var(--c-r-bad);
 }
 
 .gc__rating__meh {
-  color: var(--clr-r-meh);
+  color: var(--c-r-meh);
 }
 
 .gc__rating__good {
-  color: var(--clr-r-good);
+  color: var(--c-r-good);
 }
 
 .gc__rating__great {
-  color: var(--clr-r-great);
+  color: var(--c-r-great);
 }
 
 .gc__rating__goat {
-  color: var(--clr-r-goat);
+  color: var(--c-r-goat);
 }
 
 .gc__date {
@@ -156,7 +158,8 @@ p[class^="gc__tag gc__tag--ps"] {
   list-style-type: none;
 }
 
-.gc__date li {}
+.gc__date li {
+}
 
 .gc__date li::after {
   content: ',';
@@ -172,20 +175,21 @@ p[class^="gc__tag gc__tag--ps"] {
 
 .gc__link {
   grid-area: link;
-  color: var(--clr-light);
+  color: var(--c-light);
 }
 
 .gc__link:hover,
 .gc__link:focus {
-  color: var(--clr-main);
+  color: var(--c-main);
 }
 
 .game-card--noimg {
-  grid-template-areas: "tag tag"
-    "title title"
-    "rating rating"
-    "date date"
-    "link link";
+  grid-template-areas:
+    'tag tag'
+    'title title'
+    'rating rating'
+    'date date'
+    'link link';
 }
 
 .game-card--noimg > *:not(.gc__tag) {
