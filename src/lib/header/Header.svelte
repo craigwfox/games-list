@@ -1,12 +1,11 @@
 <script>
-	import { page } from '$app/stores';
+  import { page } from '$app/stores';
 </script>
 
 <header class="site-header">
-	<nav>
-		<ul>
-			<li class:active={$page.path === '/'}><a sveltekit:prefetch href="/">Home</a></li>
-			<li class:active={$page.path === '/about'}><a sveltekit:prefetch href="/about">About</a></li>
-		</ul>
-	</nav>
+  <h1>🎮 Games list</h1>
+  <nav>
+    <a class:active={$page.path === '/'} sveltekit:prefetch href="/">Home</a>
+    <a class:active={$page.path === '/about'} sveltekit:prefetch href="/about">About</a>
+  </nav>
 </header>
