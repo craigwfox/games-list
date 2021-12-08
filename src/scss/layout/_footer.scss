@@ -9,8 +9,13 @@
   padding: 2rem;
   background: #1e1e1e;
   text-align: center;
-}
 
-.site-footer img {
-  max-width: 200px;
+  img {
+    width: 3rem;
+
+    display: inline-block;
+    vertical-align: middle;
+
+    margin: 0 0.7rem;
+  }
 }

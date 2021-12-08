@@ -47,5 +47,8 @@
 </main>
 
 <footer class="site-footer">
-  <p>&copy; <a href="https://craigwfox.com">Craig Fox</a> 🦊 2021</p>
+  <p>
+    &copy; <a href="https://craigwfox.com">Craig Fox</a>
+    <img src="./images/fox-icon.svg" alt="Illustration of fox head" /> 2021
+  </p>
 </footer>
