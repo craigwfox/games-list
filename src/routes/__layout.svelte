@@ -47,5 +47,5 @@
 </main>
 
 <footer class="site-footer">
-  <p>&copy; Craig Fox 🦊 2021</p>
+  <p>&copy; <a href="https://craigwfox.com">Craig Fox</a> 🦊 2021</p>
 </footer>
