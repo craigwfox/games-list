@@ -1,0 +1,194 @@
+// ---------------------------------------------
+// ======---------------------------------======
+//  Games feed
+// ======---------------------------------======
+// ---------------------------------------------
+
+/* ====---------------====
+  Game wrapper
+=======---------------= */
+.game-wrapper {
+  display: grid;
+  gap: 4rem 3rem;
+}
+
+@media (min-width: 650px) {
+  .game-wrapper {
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 1fr;
+  }
+}
+
+@media (min-width: 1250px) {
+  .game-wrapper {
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 1fr;
+  }
+}
+
+/* ====---------------====
+  Game card
+=======---------------= */
+.game-card {
+  --card-pad-v: 0.5rem;
+  --card-pad-h: 1rem;
+  --card-gap: 0.7rem;
+
+  display: grid;
+  grid-template-areas: "tag tag"
+    "img title"
+    "img rating"
+    "img date"
+    "img link"
+    "img filler";
+  grid-template-columns: minmax(auto, 15rem) 2fr;
+  grid-template-rows: repeat(4, auto) 1fr;
+  gap: var(--card-gap) calc(var(--card-gap) * 3);
+  overflow: hidden;
+  background: var(--clr-main-dark);
+  border-radius: 1rem;
+}
+
+@media (min-width: 650px) {
+  .game-card {
+    grid-template-areas: "tag tag"
+    "img title"
+    "img rating"
+    "img date"
+    "img link"
+    "img filler";
+  }
+}
+
+.gc__img {
+  grid-area: img;
+  display: flex;
+  margin: 0;
+}
+
+.gc__img img {
+  max-width: 100%;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.gc__tag {
+  grid-area: tag;
+  margin: 0 0 calc(var(--card-gap) * -1);
+  padding: var(--card-pad-v) var(--card-pad-h);
+  background: var(--clr-alt);
+  font-size: 1.6rem;
+}
+
+.gc__tag--pc {
+  background: var(--clr-pc);
+}
+
+p[class^="gc__tag gc__tag--x"] {
+  background: var(--clr-xb);
+}
+
+p[class^="gc__tag gc__tag--n"] {
+  background: var(--clr-ni);
+}
+
+p[class^="gc__tag gc__tag--ps"] {
+  background: var(--clr-ps);
+}
+
+.gc__title {
+  grid-area: title;
+  margin: 0;
+  padding-top: var(--card-pad-v);
+  color: var(--clr-light);
+  font-size: clamp(1.8rem, 3vw, 2.3rem);
+}
+
+@media (min-width: 650px) {
+  .gc__title {
+    margin-top: var(--card-pad-v);
+  }
+}
+
+.gc__rating {
+  grid-area: rating;
+
+  margin: 0;
+
+  font-size: 1.8rem;
+}
+
+.gc__rating__bad {
+  color: var(--clr-r-bad);
+}
+
+.gc__rating__meh {
+  color: var(--clr-r-meh);
+}
+
+.gc__rating__good {
+  color: var(--clr-r-good);
+}
+
+.gc__rating__great {
+  color: var(--clr-r-great);
+}
+
+.gc__rating__goat {
+  color: var(--clr-r-goat);
+}
+
+.gc__date {
+  grid-area: date;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  font-size: 1.8rem;
+}
+
+.gc__date ul {
+  display: flex;
+
+  margin: 0;
+  padding: 0;
+
+  list-style-type: none;
+}
+
+.gc__date li {}
+
+.gc__date li::after {
+  content: ',';
+
+  margin-right: 0.5rem;
+}
+
+.gc__date li:last-child::after {
+  content: '';
+
+  margin-right: 0;
+}
+
+.gc__link {
+  grid-area: link;
+  color: var(--clr-light);
+}
+
+.gc__link:hover,
+.gc__link:focus {
+  color: var(--clr-main);
+}
+
+.game-card--noimg {
+  grid-template-areas: "tag tag"
+    "title title"
+    "rating rating"
+    "date date"
+    "link link";
+}
+
+.game-card--noimg > *:not(.gc__tag) {
+  margin-left: 1rem;
+  margin-right: 1rem;
+}

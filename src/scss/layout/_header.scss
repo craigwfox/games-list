@@ -1,0 +1,30 @@
+// ---------------------------------------------
+// ======---------------------------------======
+//  Site header
+// ======---------------------------------======
+// ---------------------------------------------
+.site-header {
+  display: grid;
+  place-content: center;
+  gap: 1.5rem;
+  padding: 2rem 2rem 2.5rem;
+  background: var(--clr-main-dark);
+}
+
+.site-header h2 {
+  margin: 0;
+  color: var(--clr-main);
+  font-size: 4rem;
+  line-height: 1;
+}
+
+.site-header nav {
+  display: flex;
+  place-content: center;
+  gap: 2rem;
+}
+
+.site-header nav a {
+  color: var(--clr-light);
+  font-size: var(--fs-lg);
+}
