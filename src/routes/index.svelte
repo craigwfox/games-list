@@ -9,9 +9,9 @@
   <title>Home - Games list</title>
 </svelte:head>
 
-<section aria-labelledby="recent-games">
-  <h1 id="recent-games">Recent games</h1>
+<h1 id="recent-games">Recent games</h1>
 
+<section aria-label="Games feed">
   <div class="game-filters">
     <div class="form">
       <label for="sortYear">Sort by year</label>
@@ -35,4 +35,5 @@
       </select>
     </div>
   </div>
+  <div class="game-wrapper">...</div>
 </section>
