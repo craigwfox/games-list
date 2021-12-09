@@ -1,0 +1,62 @@
+// ====---------------====
+// Variables
+// ====---------------====
+
+:root {
+  // ====---------------====
+  // Colors
+  // ====---------------====
+  --c-light: #e9f2f9;
+  --c-main: hsl(189, 84%, 52%);
+  --c-alt: hsl(189, 84%, 35%);
+  --c-bg-light: #9cc4e4;
+  --c-main-dark: hsl(340, 71%, 12%);
+  --c-bg: hsl(340, 11%, 95%);
+  --c-dark: hsl(340, 71%, 7%);
+  --c-text-base: hsl(340, 71%, 3%);
+
+  --c-r-bad: hsla(350, 59%, 71%, 1);
+  --c-r-meh: hsla(11, 59%, 83%, 1);
+  --c-r-good: hsla(165, 84%, 66%, 1);
+  --c-r-great: hsla(98, 80%, 70%, 1);
+  --c-r-goat: hsla(271, 73%, 72%, 1);
+
+  --c-ni: hsla(355, 85%, 32%, 1);
+  --c-ps: hsla(208, 89%, 36%, 1);
+  --c-xb: hsla(89, 62%, 31.5%, 1);
+  --c-pc: hsla(270, 63%, 36%, 1);
+  --c-mo: hsla(298, 53%, 55%, 1);
+
+  // ====---------------====
+  // Type
+  // ====---------------====
+  --ff-base: 'Rubik', sans-serif;
+  --ff-accent: 'Fugaz One', cursive;
+  --fs-base: 1.8rem;
+  --fs-lg: 2.2rem;
+
+  // ====---------------====
+  // Spacing
+  // ====---------------====
+  --sp-sm: 1rem;
+  --sp-md: 2rem;
+  --sp-lg: 3rem;
+  --sp-para: calc(var(--sp-sm) * 1.5);
+
+  // ====---------------====
+  // Widths
+  // ====---------------====
+  --mq-small: 650px;
+  --mq-medium: 800px;
+  --mq-large: 1250px;
+  --mq-super: 1600px;
+  --mq-ultra: 1900px;
+  --w-sm: 45rem;
+  --w-md: 65rem;
+  --w-lg: 75rem;
+
+  // ====---------------====
+  // Speeds
+  // ====---------------====
+  --speed-main: 0.2s;
+}

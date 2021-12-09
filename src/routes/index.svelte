@@ -1,59 +1,39 @@
 <script context="module">
-	export const prerender = true;
+  export const prerender = true;
 </script>
 
 <script>
-	import Counter from '$lib/Counter.svelte';
 </script>
 
 <svelte:head>
-	<title>Home</title>
+  <title>Home - Games list</title>
 </svelte:head>
 
-<section>
-	<h1>
-		<div class="welcome">
-			<picture>
-				<source srcset="svelte-welcome.webp" type="image/webp" />
-				<img src="svelte-welcome.png" alt="Welcome" />
-			</picture>
-		</div>
+<h1 id="recent-games">Recent games</h1>
 
-		to your new<br />SvelteKit app
-	</h1>
-
-	<h2>
-		try editing <strong>src/routes/index.svelte</strong>
-	</h2>
-
-	<Counter />
+<section aria-label="Games feed">
+  <div class="game-filters">
+    <div class="form">
+      <label for="sortYear">Sort by year</label>
+      <select name="sortYear" id="sortYear">
+        <option value="all" selected>All</option>
+        <option value="">2021</option>
+      </select>
+    </div>
+    <div class="form">
+      <label for="sortConsole">Sort by console</label>
+      <select name="sortConsole" id="sortConsole">
+        <option value="all" selected>All</option>
+        <option value="">SNES</option>
+      </select>
+    </div>
+    <div class="form">
+      <label for="sortRating">Sort by rating</label>
+      <select name="sortRating" id="sortRating">
+        <option value="all" selected>All</option>
+        <option value="">bad</option>
+      </select>
+    </div>
+  </div>
+  <div class="game-wrapper">...</div>
 </section>
-
-<style>
-	section {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		flex: 1;
-	}
-
-	h1 {
-		width: 100%;
-	}
-
-	.welcome {
-		position: relative;
-		width: 100%;
-		height: 0;
-		padding: 0 0 calc(100% * 495 / 2048) 0;
-	}
-
-	.welcome img {
-		position: absolute;
-		width: 100%;
-		height: 100%;
-		top: 0;
-		display: block;
-	}
-</style>

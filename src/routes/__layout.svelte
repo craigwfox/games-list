@@ -1,45 +1,55 @@
 <script>
-	import Header from '$lib/header/Header.svelte';
-	import '../app.css';
+  import Header from '$lib/header/Header.svelte';
 </script>
+
+<svelte:head>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fugaz+One&family=Rubik:wght@400;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <style lang="scss">
+    /* ====---------------====
+			Support
+		=======---------------= */
+    @import '../scss/support/variables';
+    @import '../scss/support/reset';
+    @import '../scss/support/mixins';
+
+    /* ====---------------====
+			Type
+		=======---------------= */
+    @import '../scss/type/lists';
+    @import '../scss/type/headings';
+    @import '../scss/type/misc';
+
+    /* ====---------------====
+			Bits
+		=======---------------= */
+    @import '../scss/bits/game-fitlering';
+
+    /* ====---------------====
+			Layout
+		=======---------------= */
+    @import '../scss/layout/structure';
+    @import '../scss/layout/header';
+    @import '../scss/layout/footer';
+    @import '../scss/layout/game-feed';
+  </style>
+</svelte:head>
 
 <Header />
 
-<main>
-	<slot />
+<main class="main">
+  <slot />
 </main>
 
-<footer>
-	<p>visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to learn SvelteKit</p>
+<footer class="site-footer">
+  <p>
+    &copy; {new Date().getFullYear()} <a href="https://craigwfox.com">Craig Fox</a>
+    <img src="./images/fox-icon.svg" alt="Illustration of fox head" />
+    Built using SvelteKit
+  </p>
 </footer>
-
-<style>
-	main {
-		flex: 1;
-		display: flex;
-		flex-direction: column;
-		padding: 1rem;
-		width: 100%;
-		max-width: 1024px;
-		margin: 0 auto;
-		box-sizing: border-box;
-	}
-
-	footer {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		padding: 40px;
-	}
-
-	footer a {
-		font-weight: bold;
-	}
-
-	@media (min-width: 480px) {
-		footer {
-			padding: 40px 0;
-		}
-	}
-</style>
