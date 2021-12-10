@@ -8,7 +8,7 @@ public_folder: /img
 collections:
   - name: "game"
     label: "Game"
-    folder: "src/games"
+    folder: "src/routes/games"
     format: "frontmatter"
     create: true
     slug: "{{slug}}"
