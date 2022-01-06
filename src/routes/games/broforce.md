@@ -10,18 +10,15 @@ game_info:
     controller. Overall I didn’t love this game, it was fun for a short time
     though. I do think I might give something else in this genre a try.
   play_count: 1
-  time_played:
-    play_time_hours: 1
-    play_time_minutes: 30
-  date_day: ""
+  date_day: ''
   times_played:
-    - date_day: ""
+    - date_day: ''
       time_played:
         play_time_hours: 1
-        play_time_minutes: ""
-      date_year: "2021"
+        play_time_minutes: 30
+      date_year: '2021'
   banner: /img/broforce-banner.webp
   poster: /img/broforce-thumbnail.webp
-  date_year: "2021"
+  date_year: '2021'
   rating: meh
 ---
