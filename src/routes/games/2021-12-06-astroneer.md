@@ -13,7 +13,7 @@ game_info:
   times_played:
     - date_day: ""
       time_played:
-        play_time_hours: 61
+        play_time_hours: 65
         play_time_minutes: ""
       date_year: "2020"
   banner: /img/astroneer-banner.webp
