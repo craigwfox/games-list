@@ -25,7 +25,7 @@ and do side guild stuff. I really do wish that the “factions” that built
 around the different fixers in the city had more impact and that we could
 build rep, and ally / war with them. They just seem a bit hollow.
 
-## Some things I’ve liked
+### Some things I’ve liked
 
 The cyber hacking abilities in combat have been great. I only used a small amount of them on my Corpo play though and didn’t use them at all hardly on my Nomad and doing that has made me miss them. I plan on doing a third play through after DLC comes out on a Street Kid that almost only uses hacking.
 
@@ -33,7 +33,7 @@ The talents have been fairly decent and I like being able to pretty freely mix a
 
 Lot’s of fun clothing, but it can be a bit of a pain to find good looking clothing that also has high stats.
 
-## Indifferent
+### Indifferent
 
 I know a lot of people talk about melee combat being great, but I think this is only because it’s overpowered. I’ve just found it to be boring to me.
 

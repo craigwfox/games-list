@@ -5,8 +5,6 @@ console_settings:
     - pc
   play_method: digital
 game_info:
-  play_count: 1
-  date_day: ''
   times_played:
     - date_day: ''
       time_played:
@@ -19,7 +17,4 @@ game_info:
   rating: meh
 ---
 
-I played this a few times, once as single player and once as 4 person
-coop. I used keyboard for a few minutes and hated that and then swapped to a
-controller. Overall I didn’t love this game, it was fun for a short time
-though. I do think I might give something else in this genre a try.
+I played this a few times, once as single player and once as 4 person coop. I used keyboard for a few minutes and hated that and then swapped to a controller. Overall I didn’t love this game, it was fun for a short time though. I do think I might give something else in this genre a try.

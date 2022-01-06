@@ -114,6 +114,6 @@ collections:
           },
           { label: "Game poster", name: "poster", widget: "image", required: false },
           { label: "Game banner", name: "banner", widget: "image", required: false },
-          { label: "Notes", name: "body", widget: "markdown", required: false }
         ]
       }
+      - { label: "Body", name: "body", widget: "markdown", required: false }

@@ -5,11 +5,9 @@ console_settings:
     - x_360
   play_method: physical
 game_info:
-  date_day: ''
   poster: /img/brutal-legend-thumbnail.webp
   date_year: Legacy, 2021
   rating: goat
-  play_count: 1
   times_played:
     - date_day: ''
       time_played:

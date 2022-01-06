@@ -26,8 +26,9 @@
           {game.meta.title}
         </a>
       </h2>
-      Console: {game.meta.console_settings.console[0]}<br />
+      Console: {game.meta.console_settings.console}<br />
       Date played: {game.meta.game_info.times_played[0].date_year}
+      <slot />
     </li>
   {/each}
 </ul>

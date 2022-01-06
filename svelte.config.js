@@ -2,7 +2,6 @@ import adapter from '@sveltejs/adapter-static';
 import sveltePreprocess from 'svelte-preprocess';
 import { mdsvex } from 'mdsvex';
 
-/** @type {import('@sveltejs/kit').Config} */
 const config = {
   kit: {
     adapter: adapter(),
@@ -16,7 +15,7 @@ const config = {
     mdsvex({
       extensions: ['.md'],
       layout: {
-        blog: 'src/routes/games/_game.svelte'
+        games: 'src/routes/games/_game.svelte'
       }
     })
   ]
