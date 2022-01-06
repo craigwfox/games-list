@@ -5,7 +5,6 @@ console_settings:
     - pc
   play_method: digital
 game_info:
-  body: ''
   play_count: 2
   date_day: ''
   times_played:
