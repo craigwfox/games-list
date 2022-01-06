@@ -21,7 +21,7 @@
 <footer class="site-footer">
   <p>
     &copy; {new Date().getFullYear()} <a href="https://craigwfox.com">Craig Fox</a>
-    <img src="./images/fox-icon.svg" alt="Illustration of fox head" />
+    <img src="/images/fox-icon.svg" alt="Illustration of fox head" />
     Built using SvelteKit
   </p>
 </footer>
