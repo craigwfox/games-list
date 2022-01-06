@@ -1,5 +1,4 @@
-import svelte from 'rollup-plugin-svelte';
-import adapter from '@sveltejs/adapter-netlify';
+import adapter from '@sveltejs/adapter-static';
 import sveltePreprocess from 'svelte-preprocess';
 import { mdsvex } from 'mdsvex';
 
@@ -11,12 +10,14 @@ const config = {
     // hydrate the <div id="svelte"> element in src/app.html
     target: '#svelte'
   },
-  preprocess: sveltePreprocess(),
-  plugins: [
-    svelte({
-      // tell svelte to handle mdsvex files
-      extensions: ['.svelte', '.svx', '.md'],
-      preprocess: mdsvex({ extensions: ['.svx', '.md'] })
+  extensions: ['.svelte', '.md'],
+  preprocess: [
+    sveltePreprocess(),
+    mdsvex({
+      extensions: ['.md'],
+      layout: {
+        blog: 'src/routes/games/_game.svelte'
+      }
     })
   ]
 };
