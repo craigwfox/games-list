@@ -21,11 +21,6 @@
     { value: 'digital', label: 'Digital' },
     { value: 'emulation', label: 'Emulation' }
   ];
-
-  export let title;
-  export let console_settings;
-  export let game_info;
-
   export function prettLabel(cpName, cpArry) {
     let prettyName = cpName;
 
@@ -35,6 +30,10 @@
 
     return prettyName;
   }
+
+  export let title;
+  export let console_settings;
+  export let game_info;
 </script>
 
 <svelte:head>

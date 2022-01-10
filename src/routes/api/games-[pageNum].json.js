@@ -1,5 +1,5 @@
 // games.json.js
-export const get = async () => {
+export async function get() {
   const allGameFiles = import.meta.glob('../games/*.md');
   const iterableGameFiles = Object.entries(allGameFiles);
 
@@ -15,8 +15,17 @@ export const get = async () => {
     })
   );
 
+  const gameCount = await allGames.length;
+  const pageCount = await Math.round(gameCount / 10);
+
+  const headers = {
+    'x-total-games': gameCount,
+    'x-total-pages': pageCount
+  };
+
   return {
+    headers: headers,
     status: 200,
     body: allGames
   };
-};
+}
