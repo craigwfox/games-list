@@ -6,7 +6,7 @@
   // ====---------------====
   $: curPage = 1;
   let pageLen = 15;
-  let games = [];
+  let games = []; // this is never modified after the intial load, only change the gamesfilted value
   $: gameTotal = 0;
   $: pageCount = [];
   $: filterStart = pageLen * curPage - pageLen;
@@ -93,11 +93,40 @@
   // ====---------------====
   // Console filtering
   // ====---------------====
+  // creates an arry of consoles to populate the filters menu and allow for filtering of results
+  $: consoleList = [];
+  function getConsoles() {
+    let gcArry = [];
+
+    gamesFiltered.forEach((game) => {
+      if (!gcArry.includes(game.meta.console_settings.console[0]))
+        gcArry.push(game.meta.console_settings.console[0]);
+    });
+
+    consoleList = gcArry;
+  }
+
+  function gcMatch(a, b) {
+    return a === b ? true : false;
+  }
+
+  // Runs when the console filter is changed
+  function filterByConsole() {
+    const selectedGc = document.querySelector('#filterByConsole').value;
+
+    // we will fiter this based off the gamesFiltered list since it's going to be filtering after running the year filter
+    if (selectedGc != 'all') {
+      gamesFiltered = gamesFiltered.filter((game) =>
+        gcMatch(game.meta.console_settings.console[0], selectedGc)
+      );
+    }
+
+    countPages();
+  }
 
   // ====---------------====
   // Year filtering
   // ====---------------====
-
   // set's up an array or years to populate the years array
   $: yearList = [];
   function getYears() {
@@ -116,8 +145,8 @@
   }
 
   // watchs the year select for on change
-  function filterByYear(event) {
-    const selectedYear = event.target.value;
+  function filterByYear() {
+    const selectedYear = document.querySelector('#filterByYear').value;
 
     if (selectedYear != 'all') {
       gamesFiltered = games.filter((game) =>
@@ -128,6 +157,19 @@
     }
 
     countPages();
+  }
+
+  // ====---------------====
+  // Filter games - Runs all filters
+  // ====---------------====
+  function runFilters() {
+    // runs the filters asynchronous this way the filters are overwriting each other
+    new Promise((resolve, reject) => {
+      filterByYear();
+      resolve();
+    }).then(() => {
+      filterByConsole();
+    });
   }
 
   // ====---------------====
@@ -144,16 +186,26 @@
 
     await countPages();
     await getYears();
+    await getConsoles();
   });
 </script>
 
 <div class="filters">
   <div class="form">
     <label for="filterByYear">Filter by year</label>
-    <select name="filterByYear" id="filterByYear" on:change={filterByYear}>
+    <select name="filterByYear" id="filterByYear" on:change={runFilters}>
       <option value="all">All years</option>
       {#each yearList as year}
         <option value={year}>{year}</option>
+      {/each}
+    </select>
+  </div>
+  <div class="form">
+    <label for="filterByConsole">Filter by console</label>
+    <select name="filterByConsole" id="filterByConsole" on:change={runFilters}>
+      <option value="all">All consoles</option>
+      {#each consoleList as gConsole}
+        <option value={gConsole}>{prettLabel(gConsole, consoleArry)}</option>
       {/each}
     </select>
   </div>
