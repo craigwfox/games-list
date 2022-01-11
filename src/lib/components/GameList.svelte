@@ -4,10 +4,9 @@
   // ====---------------====
   // Vars
   // ====---------------====
-  $: curPage = 1;
   let pageLen = 15;
+  $: curPage = 1;
   let games = []; // this is never modified after the intial load, only change the gamesfilted value
-  $: gameTotal = 0;
   $: pageCount = [];
   $: filterStart = pageLen * curPage - pageLen;
   $: filterEnd = pageLen * curPage;
@@ -180,9 +179,6 @@
     const response = await fetch('/api/games.json');
     const res = await response.json();
     games = await res;
-
-    // get total games and get some pagination going
-    gameTotal = await res.length;
 
     await countPages();
     await getYears();
