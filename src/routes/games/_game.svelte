@@ -1,4 +1,5 @@
 <script>
+  import { seo } from '$lib/store.js';
   export const consoleArry = [
     { value: 'n_nes', label: 'Nintendo Entertainment System' },
     { value: 'n_snes', label: 'Super Nintendo Entertainment System' },
@@ -37,7 +38,7 @@
 </script>
 
 <svelte:head>
-  <title>{title} // Craig's Games list</title>
+  <title>{title} {seo.title}</title>
 </svelte:head>
 
 <div class="game">
