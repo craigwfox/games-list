@@ -3,72 +3,79 @@
 //  Game filtering
 // ======---------------------------------======
 // ---------------------------------------------
-.game-filters {
+.filters {
   display: flex;
   gap: 4rem;
 
   margin-bottom: 3rem;
+
+  .form {
+    grid-row: 1;
+    display: grid;
+    place-content: start;
+    gap: 1rem;
+  }
+
+  label {
+    font-family: var(--ff-main);
+    font-size: var(--fs-lg);
+    font-weight: 700;
+    line-height: 1.5;
+  }
+
+  select {
+    padding: 0.75rem;
+
+    border: 2px solid var(--c-main);
+    background: var(--c-bg);
+    border-radius: 0.7rem;
+
+    color: var(--c-dark);
+    font-family: var(--ff-base);
+    font-size: var(--fs-base);
+    font-weight: 700;
+    line-height: 1.5;
+
+    &:hover,
+    &:focus {
+      background: var(--c-dark);
+
+      color: var(--c-light);
+    }
+
+    option {
+      color: var(--c-light);
+      background: var(--c-dark);
+    }
+
+    option.bad {
+      color: var(--c-r-bad);
+    }
+
+    option.meh {
+      color: var(--c-r-meh);
+    }
+
+    option.good {
+      color: var(--c-r-good);
+    }
+
+    option.great {
+      color: var(--c-r-great);
+    }
+
+    option.goat {
+      color: var(--c-r-goat);
+    }
+
+    option:hover,
+    option:focus {
+      background: var(--c-main-dark);
+    }
+  }
 }
 
-.game-filters .form {
-  grid-row: 1;
-  display: grid;
-  place-content: start;
-  gap: 1rem;
-}
-
-.game-filters label {
-  font-family: var(--ff-main);
-  font-size: var(--fs-lg);
-  font-weight: 700;
-  line-height: 1.5;
-}
-
-.game-filters select {
-  padding: 0.75rem;
-
-  border: 2px solid var(--c-main);
-  background: var(--c-bg);
-  border-radius: 0.7rem;
-
-  color: var(--c-light);
-  font-family: var(--ff-base);
-  font-size: var(--fs-base);
-  font-weight: 700;
-  line-height: 1.5;
-}
-
-.game-filters option {
-  color: var(--c-light);
-  background: var(--c-bg);
-}
-
-.game-filters option.bad {
-  color: var(--c-r-bad);
-}
-
-.game-filters option.meh {
-  color: var(--c-r-meh);
-}
-
-.game-filters option.good {
-  color: var(--c-r-good);
-}
-
-.game-filters option.great {
-  color: var(--c-r-great);
-}
-
-.game-filters option.goat {
-  color: var(--c-r-goat);
-}
-
-.game-filters option:hover,
-.game-filters option:focus {
-  background: var(--c-main-dark);
-}
-
-.game-count {
+.count {
   grid-row: 2;
 
   margin: 4rem 0 2rem;
