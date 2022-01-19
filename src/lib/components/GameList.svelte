@@ -131,7 +131,7 @@
   function getYears() {
     let yearArry = [];
     // loops over each game, finds the array of timesplayed and then gathers the year while checking against the yearArry
-    games.forEach((game) => {
+    gamesFiltered.forEach((game) => {
       game.meta.game_info.times_played.forEach((timePlayed) => {
         if (!yearArry.includes(timePlayed.date_year)) yearArry.push(timePlayed.date_year);
       });
@@ -165,9 +165,11 @@
     // runs the filters asynchronous this way the filters are overwriting each other
     new Promise((resolve, reject) => {
       filterByYear();
+      getConsoles();
       resolve();
     }).then(() => {
       filterByConsole();
+      getYears();
     });
   }
 
