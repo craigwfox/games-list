@@ -4,9 +4,9 @@
 
 <header class="site-header">
   <h1>🎮 Games list</h1>
-  <nav>
+  <nav class="site-nav">
     <a class:active={$page.url.pathname === '/'} sveltekit:prefetch href="/">Home</a>
-    <a class:active={$page.url.pathname === '/about'} sveltekit:prefetch href="/about">About</a>
     <a class:active={$page.url.pathname === '/games'} sveltekit:prefetch href="/games">Games</a>
+    <a class:active={$page.url.pathname === '/about'} sveltekit:prefetch href="/about">About</a>
   </nav>
 </header>

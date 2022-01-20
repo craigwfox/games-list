@@ -5,27 +5,39 @@
 // ---------------------------------------------
 .site-header {
   display: grid;
-  place-content: center;
-  gap: 1.5rem;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  gap: 6rem;
+
   padding: 2rem 2rem 2.5rem;
+
   background: var(--c-main-dark);
 
   h1 {
     margin: 0;
+
     font-family: var(--ff-accent);
-    color: var(--c-main);
-    font-size: 6rem;
+    color: var(--c-light);
+    font-size: 4rem;
     line-height: 1;
   }
+}
 
-  nav {
-    display: flex;
-    place-content: center;
-    gap: 2rem;
+.site-nav {
+  display: flex;
+  align-items: center;
+  gap: 4rem;
 
-    a {
-      color: var(--c-light);
-      font-size: var(--fs-lg);
+  margin-bottom: 0.5rem;
+
+  a {
+    color: var(--c-light);
+    font-size: var(--fs-lg);
+
+    &.active {
+      color: var(--c-main);
+      text-decoration-color: var(--c-main);
+      text-decoration-thickness: 0.5rem;
     }
   }
 }

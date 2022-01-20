@@ -86,10 +86,6 @@
   }
 
   // ====---------------====
-  // Category filtering
-  // ====---------------====
-
-  // ====---------------====
   // Console filtering
   // ====---------------====
   // creates an arry of consoles to populate the filters menu and allow for filtering of results
