@@ -6,11 +6,19 @@
 .site-footer {
   display: grid;
   place-content: center;
-  padding: 5rem 2rem;
-  background: var(--c-dark);
-  text-align: center;
 
-  color: var(--c-light);
+  padding: 5rem 2rem;
+
+  border-top: 0.2rem solid hsl(var(--c-bg-alt) / 0.8);
+  background: linear-gradient(
+    to bottom,
+    hsl(var(--c-bg)) 5%,
+    hsl(var(--c-bg-alt) / 0.3) 50%,
+    hsl(var(--c-bright) / 0.3)
+  );
+
+  color: hsl(var(--c-text));
+  text-align: center;
 
   img {
     width: 3rem;
@@ -26,11 +34,11 @@
   }
 
   a {
-    color: var(--c-main);
+    color: hsl(var(--c-text));
 
     &:hover,
     &:focus {
-      color: var(--c-bg-light);
+      color: hsl(var(--c-bright));
     }
   }
 }

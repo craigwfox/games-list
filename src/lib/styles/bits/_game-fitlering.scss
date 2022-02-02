@@ -26,11 +26,11 @@
   select {
     padding: 0.75rem;
 
-    border: 2px solid var(--c-main);
-    background: var(--c-bg);
+    border: 2px solid hsl(var(--c-bright));
+    background: hsl(var(--c-bg));
     border-radius: 0.7rem;
 
-    color: var(--c-dark);
+    color: hsl(var(--c-text));
     font-family: var(--ff-base);
     font-size: var(--fs-base);
     font-weight: 700;
@@ -38,39 +38,39 @@
 
     &:hover,
     &:focus {
-      background: var(--c-dark);
+      background: hsl(var(--c-primary));
 
-      color: var(--c-light);
+      color: hsl(var(--c-text));
     }
 
     option {
-      color: var(--c-light);
-      background: var(--c-dark);
+      color: hsl(var(--c-text));
+      background: hsl(var(--c-primary));
     }
 
     option.bad {
-      color: var(--c-r-bad);
+      color: hsl(var(--c-r-bad));
     }
 
     option.meh {
-      color: var(--c-r-meh);
+      color: hsl(var(--c-r-meh));
     }
 
     option.good {
-      color: var(--c-r-good);
+      color: hsl(var(--c-r-good));
     }
 
     option.great {
-      color: var(--c-r-great);
+      color: hsl(var(--c-r-great));
     }
 
     option.goat {
-      color: var(--c-r-goat);
+      color: hsl(var(--c-r-goat));
     }
 
     option:hover,
     option:focus {
-      background: var(--c-main-dark);
+      background: hsl(var(--c-secondary));
     }
   }
 }
@@ -80,5 +80,5 @@
 
   margin: 4rem 0 2rem;
 
-  color: var(--c-bg-light);
+  color: hsl(var(--c-text));
 }

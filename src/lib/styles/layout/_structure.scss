@@ -47,15 +47,18 @@ html {
 
 body {
   min-height: 100vh;
-  color: var(--c-text-base);
+
+  color: hsl(var(--c-text));
   font-size: var(--fs-base);
 }
 
 #svelte {
   min-height: 100vh;
+
   display: grid;
   grid-template-rows: auto 1fr auto;
-  background: var(--c-bg);
+
+  background: hsl(var(--c-bg));
 }
 
 // ====---------------====
@@ -73,7 +76,7 @@ body {
   display: flex;
   margin: 0 auto;
 
-  color: var(--c-main);
+  color: hsl(var(--c-text));
   font-size: 4rem;
   font-family: var(--ff-accent);
   font-weight: 700;
@@ -95,7 +98,7 @@ body {
 // ====---------------====
 .main {
   padding: 4rem 2rem 8rem;
-  background: var(--c-bg);
+  background: hsl(var(--c-bg));
 }
 
 .main h1 {
