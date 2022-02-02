@@ -1,26 +1,26 @@
 /* ====---------------====
   Support
 =======---------------= */
-@import './support/variables';
-@import './support/reset';
-@import './support/mixins';
+@use 'support/variables';
+@use 'support/reset';
+@use 'support/mixins';
 
 /* ====---------------====
   Type
 =======---------------= */
-@import './type/lists';
-@import './type/headings';
-@import './type/misc';
+@use 'type/lists';
+@use 'type/headings';
+@use 'type/misc';
 
 /* ====---------------====
   Bits
 =======---------------= */
-@import './bits/game-fitlering';
+@use 'bits/game-fitlering';
 
 /* ====---------------====
   Layout
 =======---------------= */
-@import './layout/structure';
-@import './layout/header';
-@import './layout/footer';
-@import './layout/game-feed';
+@use 'layout/structure';
+@use 'layout/header';
+@use 'layout/footer';
+@use 'layout/game-feed';
