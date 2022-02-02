@@ -206,28 +206,30 @@
 </div>
 <p>Showing {gamesFilteredPage.length} of {gamesFiltered.length}</p>
 
-{#each gamesFilteredPage as game}
-  <article>
-    <h2>
+<div class="games-wrapper">
+  {#each gamesFilteredPage as game, i}
+    <article class="game-card" aria-label={`title-${i}`}>
       <a href={game.path}>
-        {game.meta.title}
+        <h2 id={`title-${i}`} class="gc__title">
+          {game.meta.title}
+        </h2>
+        <img class="gc__img" src={game.meta.game_info.poster} alt={`Game cover for ${game.meta.title}`} />
+        <ul class="gc__details">
+          <li>
+            <strong>Played on</strong>
+            {prettLabel(game.meta.console_settings.console[0], consoleArry)}
+          </li>
+          <li>
+            <strong>Played in</strong>
+            {#each game.meta.game_info.times_played as play}
+            <span>{play.date_year}</span>
+            {/each}
+          </li>
+        </ul>
       </a>
-    </h2>
-    <!-- <img src={game.meta.game_info.poster} alt="" /> -->
-    <ul>
-      <li>
-        <strong>Played on</strong>
-        {prettLabel(game.meta.console_settings.console[0], consoleArry)}
-      </li>
-      <li>
-        <strong>Played in</strong>
-        {#each game.meta.game_info.times_played as play}
-          <span>{play.date_year}</span>
-        {/each}
-      </li>
-    </ul>
-  </article>
-{/each}
+    </article>
+  {/each}
+</div>
 
 <ul class="pagination">
   {#each pageCount as pageNum}

@@ -1,3 +1,5 @@
+@use "../support/mixins";
+
 // ---------------------------------------------
 // ======---------------------------------======
 //  Type - Misc
@@ -68,7 +70,7 @@ p {
   display: flex;
   align-items: center;
 
-  @include mqSmol {
+  @include mixins.mqSmol {
     justify-content: space-between;
   }
 
