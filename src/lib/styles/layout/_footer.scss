@@ -9,13 +9,24 @@
 
   padding: 5rem 2rem;
 
-  border-top: 0.2rem solid hsl(var(--c-bg-alt) / 0.8);
+  --borderSize: 0.75rem;
   background: linear-gradient(
-    to bottom,
-    hsl(var(--c-bg)) 5%,
-    hsl(var(--c-bg-alt) / 0.3) 50%,
-    hsl(var(--c-bright) / 0.3)
+    135deg,
+    hsl(var(--c-bg-alt) / 0.6),
+    hsl(var(--c-bg-alt) / 0.8),
+    hsl(var(--c-bright) / 0.1),
+    hsl(var(--c-bright) / 0.4),
+    hsl(var(--c-bright) / 0.1),
+    hsl(var(--c-bg) / 1)
   );
+  -webkit-mask: linear-gradient(red 0 0) bottom/100%
+      calc(100% - var(--borderSize)) no-repeat,
+    conic-gradient(from 135deg at top, #0000, #000 1deg 89deg, #0000 90deg)
+      top/calc(var(--borderSize) * 2) var(--borderSize) repeat-x;
+  mask: linear-gradient(red 0 0) bottom/100% calc(100% - var(--borderSize))
+      no-repeat,
+    conic-gradient(from 135deg at top, #0000, #000 1deg 89deg, #0000 90deg)
+      top/calc(var(--borderSize) * 2) var(--borderSize) repeat-x;
 
   color: hsl(var(--c-text));
   text-align: center;
