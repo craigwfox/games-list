@@ -208,14 +208,14 @@
 
 <div class="games-wrapper">
   {#each gamesFilteredPage as game, i}
-    <article class="" aria-label={`title-${i}`}>
-      <h2 id={`title-${i}`}>
+    <article class="game-card" aria-label={`title-${i}`}>
+      <h2 id={`title-${i}`} class="gc__title">
         <a href={game.path}>
           {game.meta.title}
         </a>
       </h2>
-      <img src={game.meta.game_info.poster} alt={`Game cover for ${game.meta.title}`} />
-      <ul>
+      <img class="gc__img" src={game.meta.game_info.poster} alt={`Game cover for ${game.meta.title}`} />
+      <ul class="gc__details">
         <li>
           <strong>Played on</strong>
           {prettLabel(game.meta.console_settings.console[0], consoleArry)}
