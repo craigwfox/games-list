@@ -11,6 +11,8 @@
   $: filterStart = pageLen * curPage - pageLen;
   $: filterEnd = pageLen * curPage;
   $: gamesFiltered = games;
+  $: currentYear = 'all';
+  $: currentConsole = 'all';
 
   // this is the array of games that is displayed currently on the page.
   // It will update any time the curPage, filterStart, filterEnd, or gamesFiltered are updated
@@ -107,12 +109,10 @@
 
   // Runs when the console filter is changed
   function filterByConsole() {
-    const selectedGc = document.querySelector('#filterByConsole').value;
-
     // we will fiter this based off the gamesFiltered list since it's going to be filtering after running the year filter
-    if (selectedGc != 'all') {
+    if (currentConsole != 'all') {
       gamesFiltered = gamesFiltered.filter((game) =>
-        gcMatch(game.meta.console_settings.console[0], selectedGc)
+        gcMatch(game.meta.console_settings.console[0], currentConsole)
       );
     }
 
@@ -141,11 +141,9 @@
 
   // watchs the year select for on change
   function filterByYear() {
-    const selectedYear = document.querySelector('#filterByYear').value;
-
-    if (selectedYear != 'all') {
+    if (currentYear != 'all') {
       gamesFiltered = games.filter((game) =>
-        yearMatch(game.meta.game_info.times_played, selectedYear)
+        yearMatch(game.meta.game_info.times_played, currentYear)
       );
     } else {
       gamesFiltered = games;
@@ -160,6 +158,8 @@
   function runFilters() {
     // runs the filters asynchronous this way the filters are overwriting each other
     new Promise((resolve, reject) => {
+      currentYear = document.querySelector('#filterByYear').value;
+      currentConsole = document.querySelector('#filterByConsole').value;
       filterByYear();
       getConsoles();
       resolve();
@@ -187,7 +187,7 @@
 <div class="filters">
   <div class="form">
     <label for="filterByYear">Filter by year</label>
-    <select name="filterByYear" id="filterByYear" on:change={runFilters}>
+    <select name="filterByYear" id="filterByYear" value={currentYear} on:change={runFilters}>
       <option value="all">All years</option>
       {#each yearList as year}
         <option value={year}>{year}</option>
@@ -196,7 +196,7 @@
   </div>
   <div class="form">
     <label for="filterByConsole">Filter by console</label>
-    <select name="filterByConsole" id="filterByConsole" on:change={runFilters}>
+    <select name="filterByConsole" id="filterByConsole" value={currentConsole} on:change={runFilters}>
       <option value="all">All consoles</option>
       {#each consoleList as gConsole}
         <option value={gConsole}>{prettLabel(gConsole, consoleArry)}</option>
