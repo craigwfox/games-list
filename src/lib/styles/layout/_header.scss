@@ -35,15 +35,15 @@
     font-size: var(--fs-lg);
 
     &.active {
-      color: hsl(var(--c-bright));
-      text-decoration-color: hsl(var(--c-bright));
+      color: hsl(var(--c-bright-alt));
+      text-decoration-color: hsl(var(--c-bright-alt));
       text-decoration-thickness: 0.7rem;
     }
 
     &:hover,
     &:focus {
-      color: hsl(var(--c-bright) / 0.8);
-      text-decoration-color: hsl(var(--c-bright) / 0.8);
+      color: hsl(var(--c-bright-alt) / 0.8);
+      text-decoration-color: hsl(var(--c-bright-alt) / 0.8);
       text-decoration-thickness: 0.7rem;
     }
   }

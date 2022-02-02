@@ -209,24 +209,24 @@
 <div class="games-wrapper">
   {#each gamesFilteredPage as game, i}
     <article class="game-card" aria-label={`title-${i}`}>
-      <h2 id={`title-${i}`} class="gc__title">
-        <a href={game.path}>
+      <a href={game.path}>
+        <h2 id={`title-${i}`} class="gc__title">
           {game.meta.title}
-        </a>
-      </h2>
-      <img class="gc__img" src={game.meta.game_info.poster} alt={`Game cover for ${game.meta.title}`} />
-      <ul class="gc__details">
-        <li>
-          <strong>Played on</strong>
-          {prettLabel(game.meta.console_settings.console[0], consoleArry)}
-        </li>
-        <li>
-          <strong>Played in</strong>
-          {#each game.meta.game_info.times_played as play}
+        </h2>
+        <img class="gc__img" src={game.meta.game_info.poster} alt={`Game cover for ${game.meta.title}`} />
+        <ul class="gc__details">
+          <li>
+            <strong>Played on</strong>
+            {prettLabel(game.meta.console_settings.console[0], consoleArry)}
+          </li>
+          <li>
+            <strong>Played in</strong>
+            {#each game.meta.game_info.times_played as play}
             <span>{play.date_year}</span>
-          {/each}
-        </li>
-      </ul>
+            {/each}
+          </li>
+        </ul>
+      </a>
     </article>
   {/each}
 </div>

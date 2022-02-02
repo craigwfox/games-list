@@ -10,8 +10,9 @@
   // ===------ Base colors ------===
   --c-primary: 202 100% 21%;
   --c-secondary: 182 99% 30%;
-  --c-tertiary: 43 36% 84%;
+  --c-tertiary: 43 36% 88%;
   --c-bright: 347 75% 49%;
+  --c-bright-alt: 147 75% 49%;
   --c-bg: 202 100% 10%;
   --c-bg-alt: 202 100% 7%;
 
@@ -38,8 +39,8 @@
   // ====---------------====
   --ff-base: 'Rubik', sans-serif;
   --ff-accent: 'Fugaz One', cursive;
-  --fs-base: 1.8rem;
-  --fs-lg: 2.2rem;
+  --fs-base: clamp(1.6rem, 2.5vw, 2rem);
+  --fs-lg: clamp(2rem, 5vw 3rem);
 
   // ====---------------====
   // Spacing
