@@ -4,7 +4,7 @@
 
 - Pull data from somewhere like [IGDB](https://www.igdb.com/api) to get details about the game
 - Stats page for the landing page similar to the spreadsheet I'm basing this on.
-  ![Pizza](./static/images/spreadsheet-screenshot.png | width=250)
+  ![Pizza](./static/images/spreadsheet-screenshot.png)
 
 <br>
 
