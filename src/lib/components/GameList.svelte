@@ -77,6 +77,7 @@
       newArry.push(i);
     }
 
+    console.log('running yo', gamesFiltered.length)
     pageCount = newArry;
   }
 
@@ -115,8 +116,6 @@
         gcMatch(game.meta.console_settings.console[0], currentConsole)
       );
     }
-
-    countPages();
   }
 
   // ====---------------====
@@ -148,8 +147,6 @@
     } else {
       gamesFiltered = games;
     }
-
-    countPages();
   }
 
   // ====---------------====
@@ -166,6 +163,8 @@
     }).then(() => {
       filterByConsole();
       getYears();
+    }).then(() => {
+      countPages();
     });
   }
 
@@ -178,9 +177,9 @@
     const res = await response.json();
     games = await res;
 
-    await countPages();
     await getYears();
     await getConsoles();
+    await countPages();
   });
 </script>
 
