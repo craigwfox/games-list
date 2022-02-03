@@ -84,8 +84,8 @@
   // changes the page
   function changePage(event) {
     event.preventDefault();
-    const pageHref = event.target.getAttribute('href');
-    curPage = pageHref;
+    const pageNum = event.target.getAttribute('data-pageNumber');
+    curPage = parseInt(pageNum);
   }
 
   // ====---------------====
@@ -205,6 +205,20 @@
   <p class="filter-results">Showing <span>{gamesFilteredPage.length}</span> of <span>{gamesFiltered.length}</span></p>
 </div>
 
+<ul class="pagination">
+  {#each pageCount as pageNum}
+    <li>
+      <button
+        class={(curPage === pageNum ? 'active' : '')}
+        data-pageNumber={pageNum}
+        on:click={changePage}
+      >
+        {pageNum}
+      </button>
+    </li>
+  {/each}
+</ul>
+
 <div class="games-wrapper">
   {#each gamesFilteredPage as game, i}
     <article class="game-card" aria-label={`title-${i}`}>
@@ -229,9 +243,3 @@
     </article>
   {/each}
 </div>
-
-<ul class="pagination">
-  {#each pageCount as pageNum}
-    <li><a href={pageNum} on:click={changePage}>{pageNum}</a></li>
-  {/each}
-</ul>
