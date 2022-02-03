@@ -39,6 +39,8 @@
   // ====---------------====
   --ff-base: 'Rubik', sans-serif;
   --ff-accent: 'Fugaz One', cursive;
+  --fs-xs: clamp(1.3rem, 2.3vw, 1.6rem);
+  --fs-sm: clamp(1.5rem, 2.3vw, 1.8rem);
   --fs-base: clamp(1.6rem, 2.5vw, 2rem);
   --fs-lg: clamp(2rem, 5vw, 3rem);
   --fs-xl: clamp(2.5rem, 5vw, 4rem);
