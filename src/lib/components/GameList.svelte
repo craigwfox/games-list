@@ -203,8 +203,8 @@
       {/each}
     </select>
   </div>
+  <p class="filter-results">Showing <span>{gamesFilteredPage.length}</span> of <span>{gamesFiltered.length}</span></p>
 </div>
-<p>Showing {gamesFilteredPage.length} of {gamesFiltered.length}</p>
 
 <div class="games-wrapper">
   {#each gamesFilteredPage as game, i}

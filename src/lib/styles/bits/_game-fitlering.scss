@@ -86,6 +86,14 @@
 
 .filter-results {
   width: 100%;
+
+  span {
+    font-weight: 700;
+
+    &:nth-child(1) {
+      color: hsl(var(--c-bright-alt));
+    }
+  }
 }
 
 .count {
