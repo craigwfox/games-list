@@ -19,10 +19,10 @@
 
   background: linear-gradient(
     to bottom right,
-    hsl(var(--c-bright) / 0.1),
+    hsl(var(--c-bright) / 0.3),
     hsl(var(--c-bg-alt)) 60%
   );
-  border-bottom: 0.5rem solid hsl(var(--c-bright) / 0.1);
+  border-bottom: 0.5rem solid hsl(var(--c-bright) / 0.2);
 
   clip-path: polygon(0 0, 100% 0, 100% 50%, var(--sh-path) 100%, 0 100%);
 
