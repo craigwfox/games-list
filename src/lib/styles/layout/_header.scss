@@ -1,38 +1,76 @@
+@use '../support/mixins' as *;
+
 // ---------------------------------------------
 // ======---------------------------------======
 //  Site header
 // ======---------------------------------======
 // ---------------------------------------------
 .site-header {
+  --sh-path: 80vw;
+
   display: grid;
-  grid-template-columns: auto 1fr;
-  align-items: center;
-  gap: 6rem;
+  grid-template-areas: 'mark title' 'mark nav';
+  grid-template-columns: 5rem 1fr;
+  grid-template-rows: 1fr auto;
+  align-items: end;
+  column-gap: 1rem;
 
-  padding: 2rem 2rem 2.5rem;
+  padding: 1.5rem 2rem 2rem;
 
-  background: hsl(var(--c-primary));
+  background: linear-gradient(
+    to bottom right,
+    hsl(var(--c-bright) / 0.3),
+    hsl(var(--c-bg-alt)) 60%
+  );
+  border-bottom: 0.5rem solid hsl(var(--c-bright) / 0.2);
 
-  h1 {
-    margin: 0;
+  clip-path: polygon(0 0, 100% 0, 100% 50%, var(--sh-path) 100%, 0 100%);
 
-    font-family: var(--ff-accent);
-    color: hsl(var(--c-text));
-    font-size: 4rem;
-    line-height: 1;
+  @include mqSmol {
+    --sh-path: 70vw;
   }
 }
 
-.site-nav {
+.sh__mark {
+  width: 100%;
+  height: 100%;
+  max-height: 7rem;
+
+  grid-area: mark;
+
+  object-fit: contain;
+
+  opacity: 0.5;
+
+  @include mqSmol {
+    max-height: 9rem;
+  }
+}
+
+.sh__title {
+  grid-area: title;
+  align-self: end;
+
+  margin: 0;
+
+  color: hsl(var(--c-bright));
+  font-family: var(--ff-accent);
+  font-size: clamp(4rem, 10vw, 6rem);
+  line-height: 1;
+}
+
+.sh__nav {
+  grid-area: nav;
+
   display: flex;
   align-items: center;
-  gap: 4rem;
+  gap: 2rem;
 
-  margin-bottom: 0.5rem;
+  margin: 0;
 
   a {
     color: hsl(var(--c-text));
-    font-size: var(--fs-lg);
+    font-size: var(--fs-base);
 
     &.active {
       color: hsl(var(--c-bright-alt));
