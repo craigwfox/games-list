@@ -2,9 +2,12 @@
 
 ## Todo
 
-- Pull data from somewhere like [IGDB](https://www.igdb.com/api) to get details about the game
-- Stats page for the landing page similar to the spreadsheet I'm basing this on.
+- Games details page design
+  - Pull data from somewhere like [IGDB](https://www.igdb.com/api) to get details about the game
+- Landing/Stats page for the landing page with data similar to the spreadsheet I'm basing this on.
   ![Pizza](./static/images/spreadsheet-screenshot.png)
+  - Place showing game currently being played
+- Maybe a backlog / going to play page
 
 <br>
 
