@@ -1,5 +1,6 @@
 ---
 title: Papers, please
+play_status: "true"
 console_settings:
   console:
     - pc
