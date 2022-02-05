@@ -30,7 +30,7 @@
 
   @include mqSmol {
     grid-template-columns: 1fr 1.5fr;
-    grid-template-rows: repeat(32, auto) 1fr auto;
+    grid-template-rows: repeat(3, auto) 1fr auto;
     grid-template-areas:
       'title title'
       'info img'
@@ -38,6 +38,16 @@
       'details img'
       'notes notes';
     align-items: start;
+  }
+
+  @include mqChonky {
+    grid-template-columns: repeat(2, 1fr) 1.5fr;
+    grid-template-rows: repeat(2, auto) 1fr auto;
+    grid-template-areas:
+      'title title title'
+      'info details img'
+      'console details img'
+      'notes notes notes';
   }
 
   > * {
@@ -51,6 +61,17 @@
         'title title title'
         'img img img'
         'info console details'
+        'notes notes notes';
+    }
+
+    @include mqChonky {
+      grid-template-columns: repeat(2, 1fr) 3fr;
+      grid-template-rows: repeat(3, auto) 1fr auto;
+      grid-template-areas:
+        'title title title'
+        'info img img'
+        'console img img'
+        'details img img'
         'notes notes notes';
     }
   }
