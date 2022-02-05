@@ -15,6 +15,8 @@ game_info:
   banner: /img/super-mario-64-banner.webp
 ---
 
+## My notes
+
 Was my first time to play this game after planning to play it for years. I
 played it on the switch using the pro controller. I understand people love
 the game, but overall I just couldn’t get into it. I found myself constantly

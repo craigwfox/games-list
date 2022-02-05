@@ -15,6 +15,8 @@ game_info:
   banner: /img/spyro-remastered-banner.webp
 ---
 
+## My notes
+
 I enjoyed this game quite a lot, but I think I played it a bit too soon
 after playing Spyro 1. It really kinda feels a lot like the first game. That
 said it’s still quite a bit of fun and I did collect close to 100% of all

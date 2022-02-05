@@ -15,5 +15,7 @@ game_info:
   banner: /img/subnautica-banner.webp
 ---
 
+## My notes
+
 Why did I wait so long to play this. The game still looks great, wide
 variety of unique creatures and plants.

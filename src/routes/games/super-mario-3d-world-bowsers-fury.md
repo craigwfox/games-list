@@ -11,9 +11,11 @@ game_info:
         play_time_minutes: ''
       date_year: '2021'
   rating: great
-  poster: null
+  poster: /img/super-mario-3d-world-bowsers-fury-thumbnail.webp
   banner: /img/super-mario-3d-world-bowsers-fury-banner.webp
 ---
+
+## My notes
 
 ### 3D World
 

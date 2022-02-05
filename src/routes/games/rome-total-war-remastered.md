@@ -15,6 +15,8 @@ game_info:
   banner: /img/rome-total-war-remastered-banner.webp
 ---
 
+## My notes
+
 This is basically exactly the game I remembered it was, but now with
 better graphics. The only real issue with this game is that compared to
 newer total war games it feels a bit light on content.
