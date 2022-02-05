@@ -1,4 +1,5 @@
 <script>
+  import { page } from '$app/stores';
   import Header from '$lib/components/Header.svelte';
   import '$lib/styles/styles.scss';
 </script>
@@ -14,7 +15,7 @@
 
 <Header />
 
-<main class="main">
+<main class="{$page.url.pathname.indexOf('/games/') === 0 ? 'main main--games' : 'main'}">
   <slot />
 </main>
 

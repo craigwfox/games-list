@@ -1,0 +1,155 @@
+@use '../support/mixins' as *;
+
+// ---------------------------------------------
+// ======---------------------------------======
+//  Game details
+// ======---------------------------------======
+// ---------------------------------------------
+
+// ====---------------====
+// Wrapper
+// ====---------------====
+.game-details {
+  height: 100%;
+
+  display: grid;
+  grid-template-areas:
+    'title title'
+    'img img'
+    'info console'
+    'details details'
+    'notes notes';
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+
+  position: relative;
+
+  padding: var(--padding-main);
+
+  transition: all 0.2s ease-in-out;
+
+  @include mqSmol {
+    grid-template-columns: 1fr 1.5fr;
+    grid-template-rows: repeat(32, auto) 1fr auto;
+    grid-template-areas:
+      'title title'
+      'info img'
+      'console img'
+      'details img'
+      'notes notes';
+    align-items: start;
+  }
+
+  > * {
+    @include zindex(1);
+  }
+
+  &.bigger {
+    @include mqSmol {
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-areas:
+        'title title title'
+        'img img img'
+        'info console details'
+        'notes notes notes';
+    }
+  }
+
+  h2 {
+    color: hsl(var(--c-bright-alt));
+  }
+
+  h3 {
+    color: hsl(var(--c-bright-alt) / 0.8);
+  }
+
+  ul {
+    padding: 0;
+
+    list-style: none;
+
+    strong {
+      color: hsl(var(--c-text-alt));
+    }
+  }
+}
+
+// ====---------------====
+// Game Image
+// ====---------------====
+.gd__img {
+  --size: 100%;
+
+  width: var(--size);
+  height: var(--size);
+  max-height: 20vw;
+
+  overflow: hidden;
+
+  grid-area: img;
+
+  border-radius: 1rem;
+  transition: max-height 0.2s ease-in-out;
+
+  @include mqSmol {
+    max-height: 100%;
+  }
+
+  button {
+    all: unset;
+
+    width: var(--size);
+    height: var(--size);
+
+    cursor: pointer;
+  }
+
+  img {
+    width: var(--size);
+    height: var(--size);
+
+    object-fit: cover;
+    object-position: center;
+
+    @include zindex(1);
+  }
+}
+
+// ====---------------====
+// Title
+// ====---------------====
+.gd__title {
+  grid-area: title;
+
+  color: hsl(var(--c-bright));
+  font-size: clamp(3.5rem, 7vw, 6.5rem);
+  text-align: center;
+}
+
+// ====---------------====
+// Console
+// ====---------------====
+.gd__console {
+  grid-area: console;
+}
+
+// ====---------------====
+// Info
+// ====---------------====
+.gd__info {
+  grid-area: info;
+}
+
+// ====---------------====
+// Details
+// ====---------------====
+.gd__details {
+  grid-area: details;
+}
+
+// ====---------------====
+// Notes
+// ====---------------====
+.gd__notes {
+  grid-area: notes;
+}
