@@ -1,5 +1,30 @@
+<script context="module">
+  import { variables } from '$lib/variables';
+
+  export const load = async ({ fetch }) => {
+    const game_id = '3498';
+    const API_URL = `https://api.rawg.io/api/games/${game_id}?key=${variables.API_KEY}`;
+    const response = await fetch(API_URL);
+    const res = await response.json();
+    const data = await res;
+
+    return {
+      props: {
+        game_details: data
+      }
+    }
+  }
+</script>
+
 <script>
+  // ====---------------====
+  // Imports
+  // ====---------------====
   import { seo } from '$lib/store.js';
+
+  // ====---------------====
+  // Pretty label helpers
+  // ====---------------====
   export const consoleArry = [
     { value: 'n_nes', label: 'Nintendo Entertainment System' },
     { value: 'n_snes', label: 'Super Nintendo Entertainment System' },
@@ -54,10 +79,18 @@
     return prettyName;
   }
 
+  // ====---------------====
+  // Variables
+  // ====---------------====
+
   export let title;
   export let console_settings;
   export let game_info;
+  export let game_details;
 
+  // ====---------------====
+  // Helpers
+  // ====---------------====
   function bigImg() {
     console.log('clicked')
     document.querySelector('.game-details').classList.toggle('bigger');
@@ -91,7 +124,7 @@
     <h3>Other</h3>
     <ul>
       <li><strong>Rating:</strong> {prettLabel(game_info.rating, ratingsArry)}</li>
-    </ul>
+  </ul>
   </div>
 
   <div class="gd__console">
@@ -105,7 +138,6 @@
   <div class="gd__details">
     <h2>Details</h2>
     <ul>
-      <li><strong>Publisher:</strong> CD Project Red</li>
       <li><strong>Developer:</strong> CD Project Red</li>
       <li><strong>Genre:</strong> Role-playing (RPG)</li>
       <li><strong>Rating:</strong> 78</li>
