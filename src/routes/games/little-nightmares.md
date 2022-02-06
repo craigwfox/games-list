@@ -9,7 +9,7 @@ game_info:
     - time_played:
         play_time_hours: 4
         play_time_minutes: 30
-      date_year: "2022"
+      date_year: '2022'
   rating: good
   poster: /img/little-nightmares-thumbnail.webp
   banner: /img/little-nightmares-banner.webp

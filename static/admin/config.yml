@@ -6,114 +6,133 @@ media_folder: static/img
 public_folder: /img
 
 collections:
-  - name: "game"
-    label: "Game"
-    folder: "src/routes/games"
-    format: "frontmatter"
+  - name: 'game'
+    label: 'Game'
+    folder: 'src/routes/games'
+    format: 'frontmatter'
     create: true
-    slug: "{{slug}}"
+    slug: '{{slug}}'
     editor:
       preview: false
     fields:
-      - { label: "Title", name: "title", widget: "string", required: true }
+      - { label: 'Title', name: 'title', widget: 'string', required: true }
       - {
-          label: "Console settings",
-          name: "console_settings",
-          widget: "object",
-          fields: [
-            {
-              label: "Console",
-              name: "console",
-              widget: "select",
-              multiple: true,
-              options: [
-                { value: "n_nes", label: "Nintendo Entertainment System" },
-                {
-                  value: "n_snes",
-                  label: "Super Nintendo Entertainment System",
-                },
-                { value: "n_n64", label: "Nintendo 64" },
-                { value: "n_gamecube", label: "Nintendo Gamecube" },
-                { value: "n_wii", label: "Nintendo Wii" },
-                { value: "n_switch", label: "Nintendo Switch" },
-                { value: "n_ds", label: "Nintendo DS" },
-                { value: "n_3ds", label: "Nintendo 3DS" },
-                { value: "x_xbox", label: "Xbox" },
-                { value: "x_360", label: "Xbox 360" },
-                { value: "ps_ps1", label: "Playstation" },
-                { value: "ps_ps2", label: "Playstation 2" },
-                { value: "ps_ps4", label: "Playstation 4" },
-                { value: "pc", label: "PC" },
-                { value: "mobile", label: "Mobile (Apple/Android)" },
-              ],
-              required: true
-            },
-            {
-              label: "Play method",
-              name: "play_method",
-              widget: "select",
-              options: [
-                {value: "physical", label: "Physical"},
-                {value: "digital", label: "Digital"},
-                {value: "emulation", label: "Emulation"},
-              ],
-            required: true
-            },
-          ]
+          label: 'Console settings',
+          name: 'console_settings',
+          widget: 'object',
+          fields:
+            [
+              {
+                label: 'Console',
+                name: 'console',
+                widget: 'select',
+                multiple: true,
+                options:
+                  [
+                    { value: 'n_nes', label: 'Nintendo Entertainment System' },
+                    {
+                      value: 'n_snes',
+                      label: 'Super Nintendo Entertainment System'
+                    },
+                    { value: 'n_n64', label: 'Nintendo 64' },
+                    { value: 'n_gamecube', label: 'Nintendo Gamecube' },
+                    { value: 'n_wii', label: 'Nintendo Wii' },
+                    { value: 'n_switch', label: 'Nintendo Switch' },
+                    { value: 'n_ds', label: 'Nintendo DS' },
+                    { value: 'n_3ds', label: 'Nintendo 3DS' },
+                    { value: 'x_xbox', label: 'Xbox' },
+                    { value: 'x_360', label: 'Xbox 360' },
+                    { value: 'ps_ps1', label: 'Playstation' },
+                    { value: 'ps_ps2', label: 'Playstation 2' },
+                    { value: 'ps_ps4', label: 'Playstation 4' },
+                    { value: 'pc', label: 'PC' },
+                    { value: 'mobile', label: 'Mobile (Apple/Android)' }
+                  ],
+                required: true
+              },
+              {
+                label: 'Play method',
+                name: 'play_method',
+                widget: 'select',
+                options:
+                  [
+                    { value: 'physical', label: 'Physical' },
+                    { value: 'digital', label: 'Digital' },
+                    { value: 'emulation', label: 'Emulation' }
+                  ],
+                required: true
+              }
+            ]
         }
       - {
-        label: "Game info",
-        name: "game_info",
-        widget: "object",
-        fields: [
-          {
-            label: "Times played",
-            name: "times_played",
-            widget: "list",
-            summary: 'Finished: {{fields.date_year}} - Played: {{fields.time_played.play_time_hours}}',
-            fields: [
-              { label: "Played year", name: "date_year", widget: "string", required: false },
+          label: 'Game info',
+          name: 'game_info',
+          widget: 'object',
+          fields:
+            [
               {
-                label: "Time played",
-                name: "time_played",
-                widget: "object",
-                fields: [
-                  { label: "Hours", name: "play_time_hours", default: "", widget: "number", required: false },
-                  { label: "Minutes", name: "play_time_minutes", default: "", widget: "number", required: false },
-                ]
+                label: 'Times played',
+                name: 'times_played',
+                widget: 'list',
+                summary: 'Finished: {{fields.date_year}} - Played: {{fields.time_played.play_time_hours}}',
+                fields:
+                  [
+                    {
+                      label: 'Played year',
+                      name: 'date_year',
+                      widget: 'string',
+                      required: false
+                    },
+                    {
+                      label: 'Time played',
+                      name: 'time_played',
+                      widget: 'object',
+                      fields:
+                        [
+                          {
+                            label: 'Hours',
+                            name: 'play_time_hours',
+                            default: '',
+                            widget: 'number',
+                            required: false
+                          },
+                          {
+                            label: 'Minutes',
+                            name: 'play_time_minutes',
+                            default: '',
+                            widget: 'number',
+                            required: false
+                          }
+                        ]
+                    }
+                  ]
               },
+              {
+                label: 'Rating',
+                name: 'rating',
+                widget: 'select',
+                options:
+                  [
+                    { label: 'Bad', value: 'bad' },
+                    { label: 'Meh', value: 'meh' },
+                    { label: 'Good', value: 'good' },
+                    { label: 'Great', value: 'great' },
+                    { label: 'Personal Favorite', value: 'goat' }
+                  ],
+                required: true
+              },
+              {
+                label: 'Game poster',
+                name: 'poster',
+                widget: 'image',
+                required: false
+              },
+              {
+                label: 'Game banner',
+                name: 'banner',
+                widget: 'image',
+                required: false
+              }
             ]
-          },
-          {
-            label: "Rating",
-            name: "rating",
-            widget: "select",
-            options: [
-              {
-                label: "Bad",
-                value: "bad"
-              },
-              {
-                label: "Meh",
-                value: "meh"
-              },
-              {
-                label: "Good",
-                value: "good"
-              },
-              {
-                label: "Great",
-                value: "great"
-              },
-              {
-                label: "Personal Favorite",
-                value: "goat"
-              },
-            ],
-            required: true
-          },
-          { label: "Game poster", name: "poster", widget: "image", required: false },
-          { label: "Game banner", name: "banner", widget: "image", required: false },
-        ]
-      }
-      - { label: "Body", name: "body", widget: "markdown", required: false }
+        }
+      - { label: 'Body', name: 'body', widget: 'markdown', required: false }

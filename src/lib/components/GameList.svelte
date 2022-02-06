@@ -77,7 +77,6 @@
       newArry.push(i);
     }
 
-    console.log('running yo', gamesFiltered.length)
     pageCount = newArry;
   }
 
@@ -128,14 +127,17 @@
     // loops over each game, finds the array of timesplayed and then gathers the year while checking against the yearArry
     gamesFiltered.forEach((game) => {
       game.meta.game_info.times_played.forEach((timePlayed) => {
-        if (!yearArry.includes(timePlayed.date_year)) yearArry.push(timePlayed.date_year);
+        if (!yearArry.includes(timePlayed.date_year))
+          yearArry.push(timePlayed.date_year);
       });
     });
     yearList = yearArry.sort(sortYears);
   }
 
   function yearMatch(playArry, checkVal) {
-    return playArry.some((item) => (item.date_year === checkVal ? true : false));
+    return playArry.some((item) =>
+      item.date_year === checkVal ? true : false
+    );
   }
 
   // watchs the year select for on change
@@ -160,12 +162,14 @@
       filterByYear();
       getConsoles();
       resolve();
-    }).then(() => {
-      filterByConsole();
-      getYears();
-    }).then(() => {
-      countPages();
-    });
+    })
+      .then(() => {
+        filterByConsole();
+        getYears();
+      })
+      .then(() => {
+        countPages();
+      });
   }
 
   // ====---------------====
@@ -186,7 +190,12 @@
 <div class="filters">
   <div class="form">
     <label for="filterByYear">Filter by year</label>
-    <select name="filterByYear" id="filterByYear" value={currentYear} on:change={runFilters}>
+    <select
+      name="filterByYear"
+      id="filterByYear"
+      value={currentYear}
+      on:change={runFilters}
+    >
       <option value="all">All years</option>
       {#each yearList as year}
         <option value={year}>{year}</option>
@@ -195,21 +204,29 @@
   </div>
   <div class="form">
     <label for="filterByConsole">Filter by console</label>
-    <select name="filterByConsole" id="filterByConsole" value={currentConsole} on:change={runFilters}>
+    <select
+      name="filterByConsole"
+      id="filterByConsole"
+      value={currentConsole}
+      on:change={runFilters}
+    >
       <option value="all">All consoles</option>
       {#each consoleList as gConsole}
         <option value={gConsole}>{prettLabel(gConsole, consoleArry)}</option>
       {/each}
     </select>
   </div>
-  <p class="filter-results">Showing <span>{gamesFilteredPage.length}</span> of <span>{gamesFiltered.length}</span></p>
+  <p class="filter-results">
+    Showing <span>{gamesFilteredPage.length}</span> of
+    <span>{gamesFiltered.length}</span>
+  </p>
 </div>
 
 <ul class="pagination">
   {#each pageCount as pageNum}
     <li>
       <button
-        class={(curPage === pageNum ? 'active' : '')}
+        class={curPage === pageNum ? 'active' : ''}
         data-pageNumber={pageNum}
         on:click={changePage}
       >
@@ -226,7 +243,11 @@
         <h2 id={`title-${i}`} class="gc__title">
           {game.meta.title}
         </h2>
-        <img class="gc__img" src={game.meta.game_info.poster} alt={`Game cover for ${game.meta.title}`} />
+        <img
+          class="gc__img"
+          src={game.meta.game_info.poster}
+          alt={`Game cover for ${game.meta.title}`}
+        />
         <ul class="gc__details">
           <li>
             <strong>Played on</strong>
@@ -235,7 +256,7 @@
           <li>
             <strong>Played in</strong>
             {#each game.meta.game_info.times_played as play}
-            <span>{play.date_year}</span>
+              <span>{play.date_year}</span>
             {/each}
           </li>
         </ul>

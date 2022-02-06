@@ -9,6 +9,6 @@ game_info:
     - time_played:
         play_time_hours: 7
         play_time_minutes: 39
-      date_year: "2022"
+      date_year: '2022'
   rating: good
 ---
