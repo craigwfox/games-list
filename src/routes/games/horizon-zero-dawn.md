@@ -1,5 +1,6 @@
 ---
 title: Horizon Zero Dawn
+play_status: "false"
 console_settings:
   console:
     - ps_ps4
