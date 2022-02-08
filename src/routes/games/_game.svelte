@@ -1,21 +1,3 @@
-<script context="module">
-  import { variables } from '$lib/variables';
-
-  export const load = async ({ fetch }) => {
-    const game_id = '3498';
-    const API_URL = `https://api.rawg.io/api/games/${game_id}?key=${variables.API_KEY}`;
-    const response = await fetch(API_URL);
-    const res = await response.json();
-    const data = await res;
-
-    return {
-      props: {
-        game_details: data
-      }
-    }
-  }
-</script>
-
 <script>
   // ====---------------====
   // Imports
@@ -86,7 +68,6 @@
   export let title;
   export let console_settings;
   export let game_info;
-  export let game_details;
 
   // ====---------------====
   // Helpers
@@ -132,15 +113,6 @@
     <ul>
       <li><strong>Device:</strong> {prettLabel(console_settings.console[0], consoleArry)}</li>
       <li><strong>Media:</strong> {prettLabel(console_settings.play_method, mediaArry)}</li>
-    </ul>
-  </div>
-
-  <div class="gd__details">
-    <h2>Details</h2>
-    <ul>
-      <li><strong>Developer:</strong> CD Project Red</li>
-      <li><strong>Genre:</strong> Role-playing (RPG)</li>
-      <li><strong>Rating:</strong> 78</li>
     </ul>
   </div>
 
