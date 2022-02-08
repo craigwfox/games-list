@@ -105,7 +105,7 @@
     <h3>Other</h3>
     <ul>
       <li><strong>Rating:</strong> {prettLabel(game_info.rating, ratingsArry)}</li>
-  </ul>
+    </ul>
   </div>
 
   <div class="gd__console">
