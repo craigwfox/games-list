@@ -20,7 +20,7 @@
     'details details'
     'notes notes';
   grid-template-columns: 1fr;
-  gap: 1.5rem;
+  gap: 2rem;
 
   position: relative;
 
@@ -48,7 +48,7 @@
       'info details img'
       'console details img'
       'notes notes notes';
-    gap: 3rem;
+    gap: 5rem;
   }
 
   @include mqSuperSize {
@@ -58,7 +58,6 @@
       'info details img'
       'console details img'
       'notes notes img';
-    gap: 4rem;
   }
 
   > * {
@@ -142,6 +141,8 @@
   grid-area: img;
 
   border-radius: 1rem;
+  border: 0.7vw solid hsl(var(--c-bg-alt));
+
   transition: max-height 0.2s ease-in-out;
 
   @include mqSmol {
