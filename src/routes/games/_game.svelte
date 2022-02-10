@@ -84,9 +84,7 @@
 
 <div class={`game-details game-details--${game_info.rating}`}>
   <div class="gd__img">
-    <button on:click={bigImg}>
-      <img src={game_info.banner} alt="" />
-    </button>
+    <img on:click={bigImg} src={game_info.banner} alt="" />
   </div>
 
   <h1 class="gd__title">{title}</h1>
@@ -111,8 +109,22 @@
   <div class="gd__console">
     <h2>Played on</h2>
     <ul>
-      <li><strong>Device:</strong> {prettLabel(console_settings.console[0], consoleArry)}</li>
+      <li><strong>Platform:</strong> {prettLabel(console_settings.console[0], consoleArry)}</li>
       <li><strong>Media:</strong> {prettLabel(console_settings.play_method, mediaArry)}</li>
+    </ul>
+  </div>
+
+  <div class="gd__details">
+    <h2>About the game</h2>
+    <ul>
+      <li><strong>Genre:</strong> Action, Adventure</li>
+      <li><strong>Rating:</strong> 17+ Mature</li>
+      <li><strong>Developer:</strong> Rockstar North</li>
+      <li><strong>Publisher:</strong> Rockstar Games</li>
+      <li><strong>Release date:</strong> Sep, 17, 2013</li>
+      <li><strong>Metascore:</strong> 97</li>
+      <li><strong>Website:</strong> <a href="#0">http://www.rockstargames.com</a></li>
+      <li><strong>Average Playtime:</strong> 71 Hours</li>
     </ul>
   </div>
 
