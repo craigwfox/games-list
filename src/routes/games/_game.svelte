@@ -3,6 +3,7 @@
   // Imports
   // ====---------------====
   import { seo } from '$lib/store.js';
+  import { variables } from '$lib/variables';
 
   // ====---------------====
   // Pretty label helpers
@@ -76,6 +77,19 @@
     console.log('clicked')
     document.querySelector('.game-details').classList.toggle('bigger');
   }
+
+  async function getDetails() {
+    const game_id = '3498';
+    const API_URL = `https://api.rawg.io/api/games/${game_id}?key=${variables.API_KEY}`;
+    const response = await fetch(API_URL);
+    const res = await response.json();
+    const data = await res;
+
+    details = data;
+  }
+  getDetails();
+
+  $: details = null;
 </script>
 
 <svelte:head>
@@ -114,19 +128,21 @@
     </ul>
   </div>
 
-  <div class="gd__details">
-    <h2>About the game</h2>
-    <ul>
-      <li><strong>Genre:</strong> Action, Adventure</li>
-      <li><strong>Rating:</strong> 17+ Mature</li>
-      <li><strong>Developer:</strong> Rockstar North</li>
-      <li><strong>Publisher:</strong> Rockstar Games</li>
-      <li><strong>Release date:</strong> Sep, 17, 2013</li>
-      <li><strong>Metascore:</strong> 97</li>
-      <li><strong>Website:</strong> <a href="#0">http://www.rockstargames.com</a></li>
-      <li><strong>Average Playtime:</strong> 71 Hours</li>
-    </ul>
-  </div>
+  {#if details != null}
+    <div class="gd__details">
+      <h2>About the game</h2>
+        <ul>
+          <li><strong>Genre:</strong> {#each details.genres as genre, index}{#if index > 0}, {/if}{ genre.name }{/each}</li>
+          <li><strong>Rating:</strong> {details.esrb_rating.name}</li>
+          <li><strong>Developer:</strong> {#each details.developers as developer, index}{#if index > 0}, {/if}{ developer.name }{/each}</li>
+          <li><strong>Publisher:</strong> {#each details.publishers as publisher, index}{#if index > 0}, {/if}{ publisher.name }{/each}</li>
+          <li><strong>Release date:</strong> {details.released}</li>
+          <li><strong>Metascore:</strong> {details.metacritic}</li>
+          <li><strong>Website:</strong> <a href={details.website} rel="noreferrer">{details.website}</a></li>
+          <li><strong>Average Playtime:</strong> {details.playtime} hours</li>
+        </ul>
+    </div>
+  {/if}
 
   <div class="gd__notes">
     <slot />

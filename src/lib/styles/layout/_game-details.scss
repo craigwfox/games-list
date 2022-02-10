@@ -104,26 +104,6 @@
       color: hsl(var(--c-text-alt));
     }
   }
-
-  &::before,
-  &::after {
-    content: '';
-
-    margin-left: -3rem;
-
-    background: hsl(var(--c-bg-alt) / 0.5);
-    clip-path: polygon(0 0, 100% 0, 100% 50%, 70% 100%, 0 100%);
-
-    @include mqSmol {
-      grid-area: 2 / 1 / 5 / 2;
-      display: block;
-    }
-
-    @include mqChonky {
-      grid-area: 2 / 1 / 4 / 3;
-      display: block;
-    }
-  }
 }
 
 // ====---------------====
