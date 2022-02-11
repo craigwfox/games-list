@@ -1,0 +1,55 @@
+// ---------------------------------------------
+// ======---------------------------------======
+//  Pagination
+// ======---------------------------------======
+// ---------------------------------------------
+
+.pagination {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+
+  margin: 0 0 2rem;
+  padding: 0;
+
+  list-style: none;
+
+  button {
+    display: block;
+
+    padding: 0 1rem;
+
+    $size: 0.25rem;
+    --clr-1: hsl(var(--c-bright));
+    --clr-2: hsl(var(--c-bright) / 0.4);
+
+    border: $size solid;
+    border-image-slice: 1;
+    border-width: $size;
+    border-image-source: linear-gradient(
+      to right bottom,
+      var(--clr-1),
+      var(--clr-2)
+    );
+    background: hsl(var(--c-bg-alt));
+
+    cursor: pointer;
+    color: hsl(var(--c-text));
+
+    transition: all 0.2s ease-in-out;
+
+    &.active,
+    &.active:focus {
+      --clr-1: hsl(var(--c-text));
+      --clr-2: hsl(var(--c-text) / 0.4);
+
+      pointer-events: none;
+    }
+
+    &:hover,
+    &:focus {
+      --clr-1: hsl(var(--c-bright-alt));
+      --clr-2: hsl(var(--c-bright-alt) / 0.4);
+    }
+  }
+}

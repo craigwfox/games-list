@@ -1,6 +1,7 @@
 ---
 title: Astroneer
 play_status: "true"
+get_game_id: "1234"
 console_settings:
   console:
     - pc

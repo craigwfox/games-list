@@ -24,11 +24,11 @@
   --gc-rad: 1rem;
   --gc-opacity: 0.8;
   --gc-transition: 0.2s ease-in-out;
-  --gc-border-width: 100;
+  --gc-border-width: 10;
   --gc-border-grad: linear-gradient(
     to right,
     hsl(var(--c-bright)),
-    hsl(var(--c-primary))
+    hsl(var(--c-bright) / 0.2)
   );
 
   a {
@@ -117,7 +117,7 @@
 
   @include zindex(5);
 
-  border-top: 0.2rem solid;
+  border-top: 0.3rem solid;
   border-image: var(--gc-border-grad) var(--gc-border-width);
   background: hsl(var(--c-bg-alt));
   border-radius: 0 0 var(--gc-rad) var(--gc-rad);
