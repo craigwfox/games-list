@@ -69,10 +69,16 @@
   export let title;
   export let console_settings;
   export let game_info;
+  const regexSpaces = /\s+/g;
+  const regexSpecial = /[^a-zA-Z0-9 ]/g;
 
   // ====---------------====
   // Helpers
   // ====---------------====
+  function slug(string) {
+    return string.replace(regexSpecial, '').replace(regexSpaces, '-').toLowerCase();
+  }
+
   function bigImg() {
     console.log('clicked')
     document.querySelector('.game-details').classList.toggle('bigger');
@@ -80,7 +86,7 @@
 
   async function getDetails() {
     const game_id = '3498';
-    const API_URL = `https://api.rawg.io/api/games/${game_id}?key=${variables.API_KEY}`;
+    const API_URL = `https://api.rawg.io/api/games/${slug(title)}?key=${variables.API_KEY}`;
     const response = await fetch(API_URL);
     const res = await response.json();
     const data = await res;
@@ -132,14 +138,63 @@
     <div class="gd__details">
       <h2>About the game</h2>
         <ul>
-          <li><strong>Genre:</strong> {#each details.genres as genre, index}{#if index > 0}, {/if}{ genre.name }{/each}</li>
-          <li><strong>Rating:</strong> {details.esrb_rating.name}</li>
-          <li><strong>Developer:</strong> {#each details.developers as developer, index}{#if index > 0}, {/if}{ developer.name }{/each}</li>
-          <li><strong>Publisher:</strong> {#each details.publishers as publisher, index}{#if index > 0}, {/if}{ publisher.name }{/each}</li>
-          <li><strong>Release date:</strong> {details.released}</li>
-          <li><strong>Metascore:</strong> {details.metacritic}</li>
-          <li><strong>Website:</strong> <a href={details.website} rel="noreferrer">{details.website}</a></li>
-          <li><strong>Average Playtime:</strong> {details.playtime} hours</li>
+          {#if details.develogenrespers != null}
+            <li><strong>Genre:</strong>
+              {#each details.genres as genre, index}
+                {#if index > 0}, {/if}{ genre.name }
+              {/each}
+            </li>
+          {/if}
+            <li>
+              <strong>ESRB:</strong>
+              {#if details.esrb_rating != null}
+                {details.esrb_rating.name}
+              {:else}
+                Not rated
+              {/if}
+            </li>
+          {#if details.developers != null}
+            <li>
+              <strong>Developer:</strong>
+              {#each details.developers as developer, index}
+                {#if index > 0}, {/if} { developer.name }
+              {/each}
+            </li>
+          {/if}
+          {#if details.publishers != null}
+            <li>
+              <strong>Publisher:</strong>
+              {#each details.publishers as publisher, index}
+                {#if index > 0}, {/if}{ publisher.name }
+              {/each}
+            </li>
+          {/if}
+          <li>
+            <strong>Release date:</strong>
+            {#if details.released != null}
+              {details.released}
+            {:else}
+              Not yet released
+            {/if}
+          </li>
+          {#if details.metacritic != null}
+            <li>
+              <strong>Metascore:</strong>
+              {details.metacritic}
+            </li>
+          {/if}
+          {#if details.website != null}
+            <li class="truncate-25">
+              <strong>Website:</strong>
+              <a href={details.website} rel="noreferrer">{details.website}</a>
+            </li>
+          {/if}
+          {#if details.playtime != null}
+            <li>
+              <strong>Average Playtime:</strong>
+              {details.playtime} hours
+            </li>
+          {/if}
         </ul>
     </div>
   {/if}
