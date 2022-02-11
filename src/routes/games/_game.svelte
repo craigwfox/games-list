@@ -32,24 +32,24 @@
   ];
   export const ratingsArry = [
     {
-      label: "Bad",
-      value: "bad"
+      label: 'Bad',
+      value: 'bad'
     },
     {
-      label: "Meh",
-      value: "meh"
+      label: 'Meh',
+      value: 'meh'
     },
     {
-      label: "Good",
-      value: "good"
+      label: 'Good',
+      value: 'good'
     },
     {
-      label: "Great",
-      value: "great"
+      label: 'Great',
+      value: 'great'
     },
     {
-      label: "Personal Favorite",
-      value: "goat"
+      label: 'Personal Favorite',
+      value: 'goat'
     }
   ];
   export function prettLabel(cpName, cpArry) {
@@ -76,17 +76,21 @@
   // Helpers
   // ====---------------====
   function slug(string) {
-    return string.replace(regexSpecial, '').replace(regexSpaces, '-').toLowerCase();
+    return string
+      .replace(regexSpecial, '')
+      .replace(regexSpaces, '-')
+      .toLowerCase();
   }
 
   function bigImg() {
-    console.log('clicked')
+    console.log('clicked');
     document.querySelector('.game-details').classList.toggle('bigger');
   }
 
   async function getDetails() {
-    const game_id = '3498';
-    const API_URL = `https://api.rawg.io/api/games/${slug(title)}?key=${variables.API_KEY}`;
+    const API_URL = `https://api.rawg.io/api/games/${slug(title)}?key=${
+      variables.API_KEY
+    }`;
     const response = await fetch(API_URL);
     const res = await response.json();
     const data = await res;
@@ -111,7 +115,9 @@
 
   <div class="gd__info">
     <h2>My stats</h2>
-    <h3>Year{#if game_info.times_played.length > 1}s{/if} played</h3>
+    <h3>
+      Year{#if game_info.times_played.length > 1}s{/if} played
+    </h3>
     <ul>
       {#each game_info.times_played as play}
         <li>
@@ -122,80 +128,91 @@
     </ul>
     <h3>Other</h3>
     <ul>
-      <li><strong>Rating:</strong> {prettLabel(game_info.rating, ratingsArry)}</li>
+      <li>
+        <strong>Rating:</strong>
+        {prettLabel(game_info.rating, ratingsArry)}
+      </li>
     </ul>
   </div>
 
   <div class="gd__console">
     <h2>Played on</h2>
     <ul>
-      <li><strong>Platform:</strong> {prettLabel(console_settings.console[0], consoleArry)}</li>
-      <li><strong>Media:</strong> {prettLabel(console_settings.play_method, mediaArry)}</li>
+      <li>
+        <strong>Platform:</strong>
+        {prettLabel(console_settings.console[0], consoleArry)}
+      </li>
+      <li>
+        <strong>Media:</strong>
+        {prettLabel(console_settings.play_method, mediaArry)}
+      </li>
     </ul>
   </div>
 
   {#if details != null}
     <div class="gd__details">
       <h2>About the game</h2>
-        <ul>
-          {#if details.develogenrespers != null}
-            <li><strong>Genre:</strong>
-              {#each details.genres as genre, index}
-                {#if index > 0}, {/if}{ genre.name }
-              {/each}
-            </li>
-          {/if}
-            <li>
-              <strong>ESRB:</strong>
-              {#if details.esrb_rating != null}
-                {details.esrb_rating.name}
-              {:else}
-                Not rated
-              {/if}
-            </li>
-          {#if details.developers != null}
-            <li>
-              <strong>Developer:</strong>
-              {#each details.developers as developer, index}
-                {#if index > 0}, {/if} { developer.name }
-              {/each}
-            </li>
-          {/if}
-          {#if details.publishers != null}
-            <li>
-              <strong>Publisher:</strong>
-              {#each details.publishers as publisher, index}
-                {#if index > 0}, {/if}{ publisher.name }
-              {/each}
-            </li>
-          {/if}
+      <ul>
+        {#if details.develogenrespers != null}
           <li>
-            <strong>Release date:</strong>
-            {#if details.released != null}
-              {details.released}
-            {:else}
-              Not yet released
-            {/if}
+            <strong>Genre:</strong>
+            {#each details.genres as genre, index}
+              {#if index > 0}, {/if}{genre.name}
+            {/each}
           </li>
-          {#if details.metacritic != null}
-            <li>
-              <strong>Metascore:</strong>
-              {details.metacritic}
-            </li>
+        {/if}
+        <li>
+          <strong>ESRB:</strong>
+          {#if details.esrb_rating != null}
+            {details.esrb_rating.name}
+          {:else}
+            Not rated
           {/if}
-          {#if details.website != null}
-            <li class="truncate-25">
-              <strong>Website:</strong>
-              <a href={details.website} rel="noreferrer">{details.website}</a>
-            </li>
+        </li>
+        {#if details.developers != null}
+          <li>
+            <strong>Developer:</strong>
+            {#each details.developers as developer, index}
+              {#if index > 0}, {/if}
+              {developer.name}
+            {/each}
+          </li>
+        {/if}
+        {#if details.publishers != null}
+          <li>
+            <strong>Publisher:</strong>
+            {#each details.publishers as publisher, index}
+              {#if index > 0}, {/if}{publisher.name}
+            {/each}
+          </li>
+        {/if}
+        <li>
+          <strong>Release date:</strong>
+          {#if details.released != null}
+            {details.released}
+          {:else}
+            Not yet released
           {/if}
-          {#if details.playtime != null}
-            <li>
-              <strong>Average Playtime:</strong>
-              {details.playtime} hours
-            </li>
-          {/if}
-        </ul>
+        </li>
+        {#if details.metacritic != null}
+          <li>
+            <strong>Metascore:</strong>
+            {details.metacritic}
+          </li>
+        {/if}
+        {#if details.website != null}
+          <li class="truncate-25">
+            <strong>Website:</strong>
+            <a href={details.website} rel="noreferrer">{details.website}</a>
+          </li>
+        {/if}
+        {#if details.playtime != null}
+          <li>
+            <strong>Average Playtime:</strong>
+            {details.playtime} hours
+          </li>
+        {/if}
+      </ul>
     </div>
   {/if}
 
