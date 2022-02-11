@@ -1,7 +1,25 @@
 <!-- games/index.svelte -->
+
+<script context="module">
+  export const load = async ({ fetch }) => {
+    const games = await fetch('/api/games.json')
+    const allGames = await games.json()
+
+    return {
+      props: {
+        games: allGames
+      }
+    }
+  }
+</script>
+
 <script>
+  // Imports
   import { seo } from '$lib/store.js';
-  import GameList from '$lib/components/GameList.svelte';
+  import GameCard from '$lib/components/GameCard.svelte';
+
+  // Setting up vars
+  export let games
 </script>
 
 <svelte:head>
@@ -10,4 +28,8 @@
 
 <h1>Games</h1>
 
-<GameList />
+<div class="games-wrapper">
+  {#each games as game, i}
+    <GameCard game={game} id={i} />
+  {/each}
+</div>
