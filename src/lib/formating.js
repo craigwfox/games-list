@@ -16,6 +16,33 @@ export const format = {
     { value: 'pc', label: 'PC' },
     { value: 'mobile', label: 'Mobile (Apple/Android)' }
   ],
+  mediaArry: [
+    { value: 'physical', label: 'Physical' },
+    { value: 'digital', label: 'Digital' },
+    { value: 'emulation', label: 'Emulation' }
+  ],
+  ratingsArry: [
+    {
+      label: 'Bad',
+      value: 'bad'
+    },
+    {
+      label: 'Meh',
+      value: 'meh'
+    },
+    {
+      label: 'Good',
+      value: 'good'
+    },
+    {
+      label: 'Great',
+      value: 'great'
+    },
+    {
+      label: 'Personal Favorite',
+      value: 'goat'
+    }
+  ],
   prettyLabel: function (cpName, cpArry) {
     let prettyName = cpName;
 
@@ -24,5 +51,14 @@ export const format = {
     });
 
     return prettyName;
+  },
+  slug: function (string) {
+    const regexSpaces = /\s+/g;
+    const regexSpecial = /[^a-zA-Z0-9 ]/g;
+
+    return string
+      .replace(regexSpecial, '')
+      .replace(regexSpaces, '-')
+      .toLowerCase();
   }
 };
