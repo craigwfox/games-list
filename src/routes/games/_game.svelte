@@ -32,7 +32,7 @@
   }
   getDetails();
 
-  $: details = null;
+  $: details = `/.netlify/functions/gameDetails?game=${format.slug(title)}`;
 </script>
 
 <svelte:head>
