@@ -20,18 +20,6 @@
     document.querySelector('.game-details').classList.toggle('bigger');
   }
 
-  async function getDetails() {
-    const API_URL = `https://api.rawg.io/api/games/${format.slug(title)}?key=${
-      variables.API_KEY
-    }`;
-    const response = await fetch(API_URL);
-    const res = await response.json();
-    const data = await res;
-
-    details = data;
-  }
-  getDetails();
-
   $: details = `/.netlify/functions/gameDetails?game=${format.slug(title)}`;
 </script>
 
