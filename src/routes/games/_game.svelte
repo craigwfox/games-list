@@ -3,7 +3,7 @@
   // Imports
   // ====---------------====
   import { seo } from '$lib/store.js';
-  import {format} from '$lib/formating';
+  import { format } from '$lib/formating';
   import { variables } from '$lib/variables';
 
   // ====---------------====
@@ -22,13 +22,15 @@
 
   async function getDetails() {
     try {
-      const response = await fetch(`/.netlify/functions/gameDetails?game=${format.slug(title)}`);
+      const response = await fetch(
+        `/api/gameDetails?game=${format.slug(title)}`
+      );
       // const res = await response.json();
       // const data = await res;
       // details = data;
-      console.log(response)
+      console.log(response);
     } catch (err) {
-      console.log(`Game.svelte: ${err}`)
+      console.log(`Game.svelte: ${err}`);
     }
   }
   getDetails();
