@@ -10,7 +10,7 @@ exports.handler = async function (event, context) {
   } catch (err) {
     return {
       statusCode: 404,
-      body: err.toString()
+      body: `Gamedetails ${err.toString()}`
     };
   }
 };

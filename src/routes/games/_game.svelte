@@ -28,7 +28,7 @@
       // details = data;
       console.log(response)
     } catch (err) {
-      console.log(err)
+      console.log(`Game.svelte: ${err}`)
     }
   }
   getDetails();
