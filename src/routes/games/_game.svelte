@@ -20,7 +20,20 @@
     document.querySelector('.game-details').classList.toggle('bigger');
   }
 
-  $: details = `/.netlify/functions/gameDetails?game=${format.slug(title)}`;
+  async function getDetails() {
+    try {
+      const response = await fetch(`/.netlify/functions/gameDetails?game=${format.slug(title)}`);
+      // const res = await response.json();
+      // const data = await res;
+      // details = data;
+      console.log(response)
+    } catch (err) {
+      console.log(err)
+    }
+  }
+  getDetails();
+
+  $: details = null;
 </script>
 
 <svelte:head>
