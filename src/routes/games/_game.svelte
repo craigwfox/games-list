@@ -23,7 +23,7 @@
   async function getDetails() {
     try {
       const response = await fetch(
-        `/.netlify/functions/gameDetails?game=${format.slug(title)}`
+        `/netlify/functions/gameDetails?game=${format.slug(title)}`
       );
       // const res = await response.json();
       // const data = await res;
