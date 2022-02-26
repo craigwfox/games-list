@@ -1,5 +1,6 @@
 ---
 title: Hades
+play_status: 'true'
 console_settings:
   console:
     - n_switch

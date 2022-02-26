@@ -1,5 +1,6 @@
 ---
 title: Super Mario Odyssey
+play_status: 'true'
 console_settings:
   console:
     - n_switch

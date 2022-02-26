@@ -1,5 +1,6 @@
 ---
 title: Prison Architect
+play_status: 'true'
 console_settings:
   console:
     - pc

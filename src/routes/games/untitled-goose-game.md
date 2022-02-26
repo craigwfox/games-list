@@ -1,5 +1,6 @@
 ---
 title: Untitled Goose Game
+play_status: 'true'
 console_settings:
   console:
     - n_switch

@@ -1,5 +1,6 @@
 ---
 title: "Super Mario World 2: Yoshi's Island"
+play_status: 'true'
 console_settings:
   console:
     - n_snes
