@@ -15,17 +15,17 @@ collections:
     editor:
       preview: false
     fields:
+      - { label: 'Title', name: 'title', widget: 'string', required: true }
       - {
           label: 'Play status',
           name: 'play_status',
           widget: 'select',
           options:
             [
-              { value: true, label: 'Finished playing' },
-              { value: false, label: 'Currently playing' }
+              { value: 'true', label: 'Finished playing' },
+              { value: 'false', label: 'Currently playing' }
             ]
         }
-      - { label: 'Title', name: 'title', widget: 'string', required: true }
       - {
           label: 'Console settings',
           name: 'console_settings',
