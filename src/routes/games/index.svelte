@@ -1,16 +1,15 @@
 <!-- games/index.svelte -->
-
 <script context="module">
   export const load = async ({ fetch }) => {
-    const games = await fetch('/api/games.json')
-    const allGames = await games.json()
+    const games = await fetch('/api/games.json');
+    const allGames = await games.json();
 
     return {
       props: {
         games: allGames
       }
-    }
-  }
+    };
+  };
 </script>
 
 <script>
@@ -18,14 +17,14 @@
   // imports
   // ====---------------====
   import { seo } from '$lib/store.js';
-  import {format} from '$lib/formating';
+  import { format } from '$lib/formating';
   import GameCard from '$lib/components/GameCard.svelte';
   import { onMount } from 'svelte';
 
   // ====---------------====
   // Props
   // ====---------------====
-  export let games
+  export let games;
 
   // ====---------------====
   // Vars
@@ -88,14 +87,17 @@
     // loops over each game, finds the array of timesplayed and then gathers the year while checking against the yearArry
     gamesFiltered.forEach((game) => {
       game.meta.game_info.times_played.forEach((timePlayed) => {
-        if (!yearArry.includes(timePlayed.date_year)) yearArry.push(timePlayed.date_year);
+        if (!yearArry.includes(timePlayed.date_year))
+          yearArry.push(timePlayed.date_year);
       });
     });
     yearList = yearArry.sort(sortYears);
   }
 
   function yearMatch(playArry, checkVal) {
-    return playArry.some((item) => (item.date_year === checkVal ? true : false));
+    return playArry.some((item) =>
+      item.date_year === checkVal ? true : false
+    );
   }
 
   // watchs the year select for on change
@@ -115,7 +117,7 @@
   // creates an arry of consoles to populate the filters menu and allow for filtering of results
   $: consoleList = [];
   function getConsoles() {
-    console.log('getting consoles')
+    console.log('getting consoles');
     let gcArry = [];
 
     gamesFiltered.forEach((game) => {
@@ -151,12 +153,14 @@
       filterByYear();
       getConsoles();
       resolve();
-    }).then(() => {
-      filterByConsole();
-      getYears();
-    }).then(() => {
-      // countPages();
-    });
+    })
+      .then(() => {
+        filterByConsole();
+        getYears();
+      })
+      .then(() => {
+        // countPages();
+      });
   }
 
   // ====---------------====
@@ -166,7 +170,7 @@
     getYears();
     getConsoles();
     countPages();
-  })
+  });
 </script>
 
 <svelte:head>
@@ -176,33 +180,45 @@
 <h1>Games</h1>
 
 {#if yearList.length > 0}
-<div class="filters">
-  <div class="form">
-    <label for="filterByYear">Filter by year</label>
-    <select name="filterByYear" id="filterByYear" value={currentYear} on:change={runFilters}>
-      <option value="all">All years</option>
-      {#each yearList as year}
-        <option value={year}>{year}</option>
-      {/each}
-    </select>
+  <div class="filters">
+    <div class="form">
+      <label for="filterByYear">Filter by year</label>
+      <select
+        name="filterByYear"
+        id="filterByYear"
+        value={currentYear}
+        on:change={runFilters}
+      >
+        <option value="all">All years</option>
+        {#each yearList as year}
+          <option value={year}>{year}</option>
+        {/each}
+      </select>
+    </div>
+    <div class="form">
+      <label for="filterByConsole">Filter by console</label>
+      <select
+        name="filterByConsole"
+        id="filterByConsole"
+        value={currentConsole}
+        on:change={runFilters}
+      >
+        <option value="all">All consoles</option>
+        {#each consoleList as gConsole}
+          <option value={gConsole}
+            >{format.prettyLabel(gConsole, format.consoleArry)}</option
+          >
+        {/each}
+      </select>
+    </div>
   </div>
-  <div class="form">
-    <label for="filterByConsole">Filter by console</label>
-    <select name="filterByConsole" id="filterByConsole" value={currentConsole} on:change={runFilters}>
-      <option value="all">All consoles</option>
-      {#each consoleList as gConsole}
-        <option value={gConsole}>{format.prettyLabel(gConsole, format.consoleArry)}</option>
-      {/each}
-    </select>
-  </div>
-</div>
 {/if}
 
 <ul class="pagination">
   {#each pageCount as pageNum}
     <li>
       <button
-        class={(curPage === pageNum ? 'active' : '')}
+        class={curPage === pageNum ? 'active' : ''}
         data-pageNumber={pageNum}
         on:click={changePage}
       >
@@ -214,6 +230,6 @@
 
 <div class="games-wrapper">
   {#each gamesFilteredPage as game, i}
-    <GameCard game={game} index={i} />
+    <GameCard {game} index={i} />
   {/each}
 </div>
