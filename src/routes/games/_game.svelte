@@ -23,12 +23,9 @@
   async function getDetails() {
     try {
       const response = await fetch(
-        `/netlify/functions/gameDetails?game=${format.slug(title)}`
+        `/.netlify/functions/gameDetails?game=${format.slug(title)}`
       );
-      // const res = await response.json();
-      // const data = await res;
-      // details = data;
-      console.log(response);
+      details = await response.json()
     } catch (err) {
       console.log(`Game.svelte: ${err}`);
     }
