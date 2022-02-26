@@ -12,6 +12,7 @@
   export let title;
   export let console_settings;
   export let game_info;
+  export let play_status;
 
   // ====---------------====
   // Helpers
@@ -51,6 +52,9 @@
 
   <div class="gd__info">
     <h2>My stats</h2>
+    {#if play_status === 'false'}
+      <p>Currently playing</p>
+    {/if}
     <h3>
       Year{#if game_info.times_played.length > 1}s{/if} played
     </h3>
