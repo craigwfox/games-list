@@ -13,4 +13,6 @@ game_info:
   rating: great
 ---
 
+## My notes
+
 Fun hack that’s not too hard. Great for learning to play harder SMW hacks.

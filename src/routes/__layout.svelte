@@ -1,4 +1,5 @@
 <script>
+  import { page } from '$app/stores';
   import Header from '$lib/components/Header.svelte';
   import '$lib/styles/styles.scss';
 </script>
@@ -15,13 +16,18 @@
 
 <Header />
 
-<main class="main">
+<main
+  class={$page.url.pathname.indexOf('/games/') === 0
+    ? 'main main--games'
+    : 'main'}
+>
   <slot />
 </main>
 
 <footer class="site-footer">
   <p>
-    &copy; {new Date().getFullYear()} <a href="https://craigwfox.com">Craig Fox</a>
+    &copy; {new Date().getFullYear()}
+    <a href="https://craigwfox.com">Craig Fox</a>
     <img src="/images/fox-icon.svg" alt="Illustration of fox head" />
     Built using SvelteKit
   </p>

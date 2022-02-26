@@ -25,6 +25,12 @@
   }
 }
 
+@mixin mqSuperSize {
+  @media (min-width: 100rem) {
+    @content;
+  }
+}
+
 // ====---------------====
 // Z-index
 // ====---------------====

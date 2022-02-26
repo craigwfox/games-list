@@ -1,0 +1,205 @@
+@use '../support/mixins' as *;
+
+// ---------------------------------------------
+// ======---------------------------------======
+//  Game details
+// ======---------------------------------======
+// ---------------------------------------------
+
+// ====---------------====
+// Wrapper
+// ====---------------====
+.game-details {
+  height: 100%;
+
+  display: grid;
+  grid-template-areas:
+    'title title'
+    'img img'
+    'info console'
+    'details details'
+    'notes notes';
+  grid-template-columns: 1fr;
+  gap: 2rem;
+
+  position: relative;
+
+  padding: var(--padding-main);
+
+  transition: all 0.2s ease-in-out;
+
+  @include mqSmol {
+    grid-template-columns: 1fr 1.5fr;
+    grid-template-rows: repeat(3, auto) 1fr auto;
+    grid-template-areas:
+      'title title'
+      'info img'
+      'console img'
+      'details img'
+      'notes notes';
+    align-items: start;
+  }
+
+  @include mqChonky {
+    grid-template-columns: auto 1fr 1.5fr;
+    grid-template-rows: repeat(2, auto) 1fr auto;
+    grid-template-areas:
+      'title title title'
+      'info details img'
+      'console details img'
+      'notes notes notes';
+    gap: 5rem;
+  }
+
+  @include mqSuperSize {
+    grid-template-rows: repeat(3, auto) 1fr;
+    grid-template-areas:
+      'title title title'
+      'info details img'
+      'console details img'
+      'notes notes img';
+  }
+
+  > * {
+    @include zindex(10);
+  }
+
+  &.bigger {
+    @include mqSmol {
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-areas:
+        'title title title'
+        'img img img'
+        'info console details'
+        'notes notes notes';
+    }
+
+    @include mqChonky {
+      grid-template-columns: repeat(2, 1fr) 2.5fr;
+      grid-template-rows: repeat(3, auto) 1fr auto;
+      grid-template-areas:
+        'title title title'
+        'info img img'
+        'console img img'
+        'details img img'
+        'notes notes notes';
+    }
+  }
+
+  h2 {
+    color: hsl(var(--c-bright-alt));
+  }
+
+  h3 {
+    color: hsl(var(--c-bright-alt) / 0.8);
+  }
+
+  ul {
+    padding: 0;
+    margin-bottom: 0.5rem;
+
+    list-style: none;
+
+    strong {
+      color: hsl(var(--c-text-alt));
+    }
+  }
+}
+
+// ====---------------====
+// Game Image
+// ====---------------====
+.gd__img {
+  --size: 100%;
+
+  width: var(--size);
+  height: var(--size);
+  max-height: 20vw;
+
+  overflow: hidden;
+
+  grid-area: img;
+
+  border-radius: 1rem;
+  border: 0.7vw solid hsl(var(--c-bg-alt));
+
+  transition: max-height 0.2s ease-in-out;
+
+  @include mqSmol {
+    max-height: 100%;
+  }
+
+  button {
+    all: unset;
+
+    width: var(--size);
+    height: var(--size);
+
+    cursor: pointer;
+  }
+
+  img {
+    width: var(--size);
+    height: var(--size);
+
+    object-fit: cover;
+    object-position: center;
+
+    @include zindex(1);
+  }
+}
+
+.bigger {
+  .gd__img {
+    max-height: 100%;
+  }
+}
+
+// ====---------------====
+// Title
+// ====---------------====
+.gd__title {
+  justify-self: center;
+
+  grid-area: title;
+
+  color: hsl(var(--c-bright));
+  font-size: clamp(3.5rem, 7vw, 6.5rem);
+  text-align: center;
+}
+
+// ====---------------====
+// Console
+// ====---------------====
+.gd__console {
+  grid-area: console;
+}
+
+// ====---------------====
+// Info
+// ====---------------====
+.gd__info {
+  grid-area: info;
+}
+
+// ====---------------====
+// Details
+// ====---------------====
+.gd__details {
+  grid-area: details;
+
+  @include mqSmol {
+    padding-bottom: 2rem;
+  }
+
+  @include mqChonky {
+    padding-bottom: 0;
+  }
+}
+
+// ====---------------====
+// Notes
+// ====---------------====
+.gd__notes {
+  grid-area: notes;
+}

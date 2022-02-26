@@ -1,6 +1,6 @@
 ---
 title: Papers, please
-play_status: "true"
+play_status: 'true'
 console_settings:
   console:
     - pc
@@ -10,9 +10,12 @@ game_info:
     - time_played:
         play_time_hours: 7
         play_time_minutes: 24
-      date_year: "2022"
+      date_year: '2022'
   rating: great
   poster: /img/papers-please-thumbnail.webp
   banner: /img/papers-please-banner.webp
 ---
+
+## My notes
+
 A solid couch game to play with someone else. You can easily work together to find the issues.

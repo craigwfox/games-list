@@ -1,9 +1,23 @@
-<script context="module">
-  export const prerender = true;
-</script>
-
 <script>
   import { seo } from '$lib/store.js';
+
+  console.log('meow');
+  async function getDetails() {
+    console.log('running');
+    try {
+      const response = await fetch(
+        `/netlify/functions/gameDetails?game=astroneer`
+      );
+      // const res = await response.json();
+      // const data = await res;
+      // details = data;
+      console.log(response);
+      return response;
+    } catch (err) {
+      console.log(`Game.svelte: ${err}`);
+    }
+  }
+  getDetails();
 </script>
 
 <svelte:head>

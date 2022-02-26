@@ -97,8 +97,12 @@ body {
 // Main
 // ====---------------====
 .main {
-  padding: 2rem 2rem 8rem;
+  padding: var(--padding-main);
   background: hsl(var(--c-bg));
+}
+
+.main--games {
+  padding: 0;
 }
 
 .main h1 {

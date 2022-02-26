@@ -16,6 +16,8 @@ game_info:
   banner: /img/cyberpunk-2077-banner.webp
 ---
 
+## My notes
+
 This game has been a lot of fun for me. I’ve played through the full story
 and most major side quests as a Corpo and through a lot of the side quest
 and part of the story as a Nomad. Overall I think I’ve enjoyed a lot of the
@@ -37,4 +39,4 @@ Lot’s of fun clothing, but it can be a bit of a pain to find good looking clot
 
 I know a lot of people talk about melee combat being great, but I think this is only because it’s overpowered. I’ve just found it to be boring to me.
 
-The driving is fucking trash. Some cars just seem to handle badly at speeds that make no sense. I don’t think that going 35 mph should be causing it to slide out of control when going around tight corners. Also the “off road” cars just seem to bounce on everything. Also trash bags are the single most dangerous things to cars.
+The driving is a bit trash. Some cars just seem to handle badly at speeds that make no sense. I don’t think that going 35 mph should be causing it to slide out of control when going around tight corners. Also the “off road” cars just seem to bounce on everything. Also trash bags are the single most dangerous things to cars.

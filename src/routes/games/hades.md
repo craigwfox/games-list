@@ -15,6 +15,8 @@ game_info:
   banner: /img/hades-banner.webp
 ---
 
+## My notes
+
 This was my first time to really dig into a roguelike game. I've always enjoyed learning enemy attack patterns and dungeon layouts so maybe I shouldn't have waited so long. I did turn on god mode to make the game easier, I found myself just a bit too slow to react in a lot of cases so being able to do that really helped.
 
 ### Things I liked

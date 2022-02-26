@@ -1,5 +1,5 @@
 ---
-title: "Life is Strange: True Colors"
+title: 'Life is Strange: True Colors'
 console_settings:
   console:
     - ps_ps4
@@ -8,8 +8,8 @@ game_info:
   times_played:
     - time_played:
         play_time_hours: 10
-        play_time_minutes: ""
-      date_year: "2021"
+        play_time_minutes: ''
+      date_year: '2021'
   rating: great
   poster: /img/life-is-strange-true-colors.webp
   banner: /img/life-is-strange-true-colors-banner.webp

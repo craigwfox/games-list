@@ -11,5 +11,44 @@
   <body>
     <!-- Include the script that builds the page and powers Netlify CMS -->
     <script src="https://unpkg.com/netlify-cms@^2.0.0/dist/netlify-cms.js"></script>
+
+    <script>
+      function fetchGame(value) {
+        console.log(value);
+      }
+
+      var GameIdControl = createClass({
+        handleChange: function (e) {
+          fetchGame(e.target.value);
+          this.props.onChange(e.target.value);
+        },
+
+        render: function () {
+          var value = this.props.value;
+
+          return h('input', {
+            id: this.props.forID,
+            className: this.props.classNameWrapper,
+            type: 'text',
+            value: value,
+            onChange: this.handleChange
+          });
+        }
+      });
+
+      var GameIdPreview = createClass({
+        render: function () {
+          return h(
+            'ul',
+            {},
+            this.props.value.map(function (val, index) {
+              return h('li', { key: index }, val);
+            })
+          );
+        }
+      });
+
+      CMS.registerWidget('game_id', GameIdControl, GameIdPreview);
+    </script>
   </body>
 </html>

@@ -17,11 +17,7 @@
 
   padding: 1.5rem 2rem 2rem;
 
-  background: linear-gradient(
-    to bottom right,
-    hsl(var(--c-bright) / 0.3),
-    hsl(var(--c-bg-alt)) 60%
-  );
+  background: hsl(var(--c-bg-alt));
   border-bottom: 0.5rem solid hsl(var(--c-bright) / 0.2);
 
   clip-path: polygon(0 0, 100% 0, 100% 50%, var(--sh-path) 100%, 0 100%);

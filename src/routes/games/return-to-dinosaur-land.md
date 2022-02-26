@@ -9,7 +9,7 @@ game_info:
     - time_played:
         play_time_hours: 2
         play_time_minutes: 30
-      date_year: "2021"
+      date_year: '2021'
   rating: good
   poster: /img/return-to-dinosaur-land-thumbnail.webp
   banner: /img/return-to-dinosaur-land-banner.webp
