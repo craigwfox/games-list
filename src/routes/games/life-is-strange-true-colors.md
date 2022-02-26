@@ -1,5 +1,6 @@
 ---
 title: 'Life is Strange: True Colors'
+play_status: 'true'
 console_settings:
   console:
     - ps_ps4

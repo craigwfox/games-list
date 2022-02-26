@@ -1,5 +1,6 @@
 ---
 title: Brutal Legend
+play_status: 'true'
 console_settings:
   console:
     - x_360

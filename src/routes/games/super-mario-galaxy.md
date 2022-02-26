@@ -1,5 +1,6 @@
 ---
 title: Super Mario Galaxy
+play_status: 'true'
 console_settings:
   console:
     - n_switch

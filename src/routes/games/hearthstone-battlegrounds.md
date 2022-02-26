@@ -1,5 +1,6 @@
 ---
 title: 'Hearthstone: Battlegrounds'
+play_status: 'true'
 console_settings:
   console:
     - pc

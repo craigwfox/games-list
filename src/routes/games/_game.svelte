@@ -12,6 +12,7 @@
   export let title;
   export let console_settings;
   export let game_info;
+  export let play_status;
 
   // ====---------------====
   // Helpers
@@ -20,19 +21,22 @@
     document.querySelector('.game-details').classList.toggle('bigger');
   }
 
+  // ====---------------====
+  // Get game details from rawg.io
+  // ====---------------====
+  $: details = 'loading'; // sets details to load state
   async function getDetails() {
     try {
       const response = await fetch(
         `/.netlify/functions/gameDetails?game=${format.slug(title)}`
       );
-      details = await response.json()
+      details = await response.json();
     } catch (err) {
+      details = 'error'; // triggers error
       console.log(`Game.svelte: ${err}`);
     }
   }
   getDetails();
-
-  $: details = null;
 </script>
 
 <svelte:head>
@@ -48,6 +52,9 @@
 
   <div class="gd__info">
     <h2>My stats</h2>
+    {#if play_status === 'false'}
+      <p>Currently playing</p>
+    {/if}
     <h3>
       Year{#if game_info.times_played.length > 1}s{/if} played
     </h3>
@@ -82,7 +89,13 @@
     </ul>
   </div>
 
-  {#if details != null}
+  {#if details === 'loading'}
+    <p class="gd__details gd__details--load">Loading game details...</p>
+  {:else if details === 'error'}
+    <p class="gd__details gd__details--error">
+      There was en error fetching game details.
+    </p>
+  {:else}
     <div class="gd__details">
       <h2>About the game</h2>
       <ul>

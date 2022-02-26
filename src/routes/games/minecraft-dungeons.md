@@ -1,5 +1,6 @@
 ---
 title: Minecraft Dungeons
+play_status: 'true'
 console_settings:
   console:
     - pc

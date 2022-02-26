@@ -1,5 +1,6 @@
 ---
 title: Tony Hawks Pro Skater 1 + 2
+play_status: 'true'
 console_settings:
   console:
     - ps_ps4

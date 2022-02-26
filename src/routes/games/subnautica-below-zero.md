@@ -1,5 +1,6 @@
 ---
 title: 'Subnautica: Below Zero'
+play_status: 'true'
 console_settings:
   console:
     - pc

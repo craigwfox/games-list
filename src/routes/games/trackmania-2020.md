@@ -1,5 +1,6 @@
 ---
 title: Trackmania (2020)
+play_status: 'true'
 console_settings:
   console:
     - pc

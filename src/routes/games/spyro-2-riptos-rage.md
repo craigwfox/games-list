@@ -1,5 +1,6 @@
 ---
 title: "Spyro 2: Ripto's Rage!"
+play_status: 'true'
 console_settings:
   console:
     - ps_ps4

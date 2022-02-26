@@ -1,5 +1,6 @@
 ---
 title: No Man's Sky
+play_status: 'true'
 console_settings:
   console:
     - pc

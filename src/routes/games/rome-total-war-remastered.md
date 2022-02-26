@@ -1,5 +1,6 @@
 ---
 title: 'Rome Total War: Remastered'
+play_status: 'true'
 console_settings:
   console:
     - pc

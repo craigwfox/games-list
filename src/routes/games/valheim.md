@@ -1,5 +1,6 @@
 ---
 title: Valheim
+play_status: 'true'
 console_settings:
   console:
     - pc

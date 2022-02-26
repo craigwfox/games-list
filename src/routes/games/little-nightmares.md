@@ -1,5 +1,6 @@
 ---
 title: Little Nightmares
+play_status: 'true'
 console_settings:
   console:
     - pc

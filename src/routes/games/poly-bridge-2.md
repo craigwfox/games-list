@@ -1,5 +1,6 @@
 ---
 title: Poly Bridge 2
+play_status: 'true'
 console_settings:
   console:
     - pc

@@ -1,5 +1,6 @@
 ---
 title: 'Wolfenstein II: The New Colossus'
+play_status: 'true'
 console_settings:
   console:
     - pc

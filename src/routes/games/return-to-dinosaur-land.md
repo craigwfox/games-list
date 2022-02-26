@@ -1,5 +1,6 @@
 ---
 title: Return To Dinosaur Land
+play_status: 'true'
 console_settings:
   console:
     - n_snes

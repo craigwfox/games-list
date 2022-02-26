@@ -131,3 +131,8 @@
     color: hsl(var(--c-text) / 1);
   }
 }
+
+.gc__details_playing {
+  color: hsl(var(--c-bright-alt));
+  font-weight: 700;
+}
