@@ -15,7 +15,16 @@ collections:
     editor:
       preview: false
     fields:
-      - { label: 'Get game ID', name: 'game_id', widget: 'game_id' }
+      - {
+          label: 'Play status',
+          name: 'play_status',
+          widget: 'select',
+          options:
+            [
+              { value: true, label: 'Finished playing' },
+              { value: false, label: 'Currently playing' }
+            ]
+        }
       - { label: 'Title', name: 'title', widget: 'string', required: true }
       - {
           label: 'Console settings',
