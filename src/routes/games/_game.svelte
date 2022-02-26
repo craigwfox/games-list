@@ -20,19 +20,19 @@
     document.querySelector('.game-details').classList.toggle('bigger');
   }
 
+  $: details = 'loading';
   async function getDetails() {
     try {
       const response = await fetch(
         `/.netlify/functions/gameDetails?game=${format.slug(title)}`
       );
-      details = await response.json()
+      details = await response.json();
     } catch (err) {
+      details = 'error';
       console.log(`Game.svelte: ${err}`);
     }
   }
   getDetails();
-
-  $: details = null;
 </script>
 
 <svelte:head>
@@ -82,7 +82,13 @@
     </ul>
   </div>
 
-  {#if details != null}
+  {#if details === 'loading'}
+    <p class="gd__details gd__details--load">Loading game details...</p>
+  {:else if details === 'error'}
+    <p class="gd__details gd__details--error">
+      There was en error fetching game details.
+    </p>
+  {:else}
     <div class="gd__details">
       <h2>About the game</h2>
       <ul>

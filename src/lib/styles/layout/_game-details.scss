@@ -195,6 +195,11 @@
   @include mqChonky {
     padding-bottom: 0;
   }
+
+  &.gd__details--load,
+  &.gd__details--error {
+    text-align: center;
+  }
 }
 
 // ====---------------====
@@ -202,4 +207,12 @@
 // ====---------------====
 .gd__notes {
   grid-area: notes;
+
+  p + h3 {
+    margin-top: 3rem;
+  }
+
+  p + h4 {
+    margin-top: 2.25rem;
+  }
 }
