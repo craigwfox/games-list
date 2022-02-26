@@ -20,7 +20,10 @@
     document.querySelector('.game-details').classList.toggle('bigger');
   }
 
-  $: details = 'loading';
+  // ====---------------====
+  // Get game details from rawg.io
+  // ====---------------====
+  $: details = 'loading'; // sets details to load state
   async function getDetails() {
     try {
       const response = await fetch(
@@ -28,7 +31,7 @@
       );
       details = await response.json();
     } catch (err) {
-      details = 'error';
+      details = 'error'; // triggers error
       console.log(`Game.svelte: ${err}`);
     }
   }
