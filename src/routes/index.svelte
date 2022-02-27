@@ -48,14 +48,14 @@
       const firstYear =
         game.meta.game_info.times_played[0].date_year.toLowerCase();
 
-      if (includesChild(yearArry, firstYear)) {
+      if (includesChild(gcYears, firstYear)) {
         let pos;
-        yearArry.some((child, index) => {
+        gcYears.some((child, index) => {
           pos = index;
         });
-        yearArry[pos][1] = yearArry[pos][1] + 1;
+        gcYears[pos][1] = gcYears[pos][1] + 1;
       } else {
-        yearArry.push([firstYear, 1]);
+        gcYears.push([firstYear, 1]);
       }
     });
   };
