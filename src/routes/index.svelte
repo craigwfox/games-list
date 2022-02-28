@@ -21,7 +21,6 @@
   // Variables
   // ====---------------====
   export let stats;
-  const years = [];
 </script>
 
 <svelte:head>
@@ -33,7 +32,7 @@
 <h2>Play totals by year</h2>
 <table>
   <tbody>
-    {#each years as year}
+    {#each stats.years as year}
       <tr>
         <th scope="row">{year.label}</th>
         <td>{year.count}</td>

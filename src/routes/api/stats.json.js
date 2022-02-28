@@ -3,41 +3,47 @@ export const get = async () => {
   const allGameFiles = import.meta.glob('../games/*.md');
   const iterableGameFiles = Object.entries(allGameFiles);
 
-  let stats = [];
+  let playedByYear = [];
 
   // ===------ takes an array and checks it's children for a match ------===
-  const includesChild = (arry, val) => {
+  const includesChild = (arry, val, title) => {
     let match = false;
-    arry.forEach((child) => {
-      if (child.hasOwnProperty(val)) {
-        console.log(child);
+    let pos = null;
+    arry.forEach((child, index) => {
+      if (child.label === val) {
         match = true;
+        pos = index;
         return true;
       }
     });
-    return match;
+    return [match, pos];
   };
 
-  const allStats = await Promise.all(
+  const getCountByYear = await Promise.all(
     iterableGameFiles.map(async ([path, resolver]) => {
       const { metadata } = await resolver();
-      const date = metadata.game_info.times_played[0].date_year;
+      const timesPlayed = metadata.game_info.times_played;
 
-      if (includesChild(stats, date)) {
-        console.log('has match');
-        stats[date].count++;
-      } else {
-        stats.push({
-          label: [date][0],
-          count: 1
-        });
-      }
+      timesPlayed.forEach((time) => {
+        const date = time.date_year.trim();
+
+        if (includesChild(playedByYear, date, metadata.title)[0]) {
+          const statsPos = includesChild(playedByYear, date, metadata.title)[1];
+          const statsCount = playedByYear[statsPos].count;
+          playedByYear[statsPos].count = statsCount + 1;
+        } else {
+          playedByYear.push({
+            label: date,
+            count: 1
+          });
+        }
+      });
     })
   );
 
   return {
     body: {
-      years: stats,
+      years: playedByYear,
       consoles: []
     }
   };
