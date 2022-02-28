@@ -60,5 +60,18 @@ export const format = {
       .replace(regexSpecial, '')
       .replace(regexSpaces, '-')
       .toLowerCase();
+  },
+  sortYears: (a, b) => {
+    // filter for sorting years
+    let c = a === 'Legacy' ? '1900' : a;
+    let d = b === 'Legacy' ? '1900' : b;
+
+    if (c < d) {
+      return 1;
+    }
+    if (c > d) {
+      return -1;
+    }
+    return 0;
   }
 };

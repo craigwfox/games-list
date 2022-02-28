@@ -60,6 +60,7 @@
     });
   };
   gameCountYear();
+  $: gcYearsAsc = gcYears.sort(format.sortYears);
 </script>
 
 <svelte:head>

@@ -63,23 +63,6 @@
     curPage = parseInt(pageNum);
   }
 
-  // ====---------------====
-  // Year filtering
-  // ====---------------====
-  // filter for .sort()
-  const sortYears = (a, b) => {
-    let c = a === 'Legacy' ? '1900' : a;
-    let d = b === 'Legacy' ? '1900' : b;
-
-    if (c < d) {
-      return 1;
-    }
-    if (c > d) {
-      return -1;
-    }
-    return 0;
-  };
-
   // set's up an array or years to populate the years array
   $: yearList = [];
   function getYears() {
@@ -91,7 +74,7 @@
           yearArry.push(timePlayed.date_year);
       });
     });
-    yearList = yearArry.sort(sortYears);
+    yearList = yearArry.sort(format.sortYears);
   }
 
   function yearMatch(playArry, checkVal) {
