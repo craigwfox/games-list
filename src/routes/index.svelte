@@ -16,6 +16,7 @@
   // Imports
   // ====---------------====
   import { seo } from '$lib/store.js';
+  import { format } from '$lib/formating';
 
   // ====---------------====
   // Variables
