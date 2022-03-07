@@ -28,46 +28,66 @@
   <title>Home {seo.title}</title>
 </svelte:head>
 
-<h1 id="recent-games">Recent games</h1>
+<h1 id="recent-games">Game stats</h1>
 
-<h2>Play totals by year</h2>
-<table>
-  <tbody>
-    {#each stats.years as year}
-      <tr>
-        <th scope="row">{year.label}</th>
-        <td>{year.count}</td>
-      </tr>
-    {/each}
-  </tbody>
-</table>
-
-<h2>Console breakdown</h2>
-<table>
-  <thead>
-    <tr>
-      <th />
-      {#each stats.consoles as gc}
-        <th class={`th--${gc.label}`}
-          >{format.shortLabel(gc.label, format.consoleArry)}</th
-        >
-      {/each}
-    </tr>
-  </thead>
-  <tbody>
-    {#each stats.years as year}
-      <tr>
-        <th scope="row">{year.label}</th>
-        {#each stats.consoles as gc}
-          <td class={`th--${gc.label}`}>
-            {#each gc.years as gcYear}
-              {#if year.label === gcYear.label}
-                {gcYear.count}
-              {/if}
-            {/each}
-          </td>
+<div class="game-stats">
+  <section aria-labelledby="title-year">
+    <h2 id="title-year">By year</h2>
+    <table>
+      <thead>
+        <th>Year</th>
+        <th>Count</th>
+        <th>Goal</th>
+      </thead>
+      <tbody>
+        {#each stats.years as year}
+          <tr>
+            <th scope="row">{year.label}</th>
+            <td>{year.count}</td>
+            <th>--</th>
+          </tr>
         {/each}
-      </tr>
-    {/each}
-  </tbody>
-</table>
+      </tbody>
+    </table>
+  </section>
+
+  <section aria-labelledby="title-console">
+    <h2 id="title-console">By Console</h2>
+    <table>
+      <thead>
+        <tr>
+          <th />
+          {#each stats.consoles as gc}
+            <th class={`th--${gc.label}`}
+              >{format.shortLabel(gc.label, format.consoleArry)}</th
+            >
+          {/each}
+        </tr>
+      </thead>
+      <tbody>
+        {#each stats.years as year}
+          <tr>
+            <th scope="row">{year.label}</th>
+            {#each stats.consoles as gc}
+              <td class={`th--${gc.label}`}>
+                {#each gc.years as gcYear}
+                  {#if year.label === gcYear.label}
+                    {gcYear.count}
+                  {/if}
+                {/each}
+              </td>
+            {/each}
+          </tr>
+        {/each}
+      </tbody>
+      <tfoot>
+        <tr>
+          <th scope="row">Total</th>
+          {#each stats.consoles as gc}
+            <td class={`th--${gc.label}`}>{gc.total}</td>
+          {/each}
+        </tr>
+      </tfoot>
+    </table>
+  </section>
+</div>

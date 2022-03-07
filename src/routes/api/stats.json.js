@@ -40,6 +40,20 @@ export const get = async () => {
     return 0;
   };
 
+  const sortConsoles = (a, b) => {
+    // filter for sorting years
+    let c = a.label;
+    let d = b.label;
+
+    if (c < d) {
+      return 1;
+    }
+    if (c > d) {
+      return -1;
+    }
+    return 0;
+  };
+
   // ====---------------====
   // Get play count by year
   // ====---------------====
@@ -125,6 +139,7 @@ export const get = async () => {
       await playedByConsole.forEach((gc) => {
         gc.years.sort(sortYears);
       });
+      await playedByConsole.sort(sortConsoles);
     })
   );
 

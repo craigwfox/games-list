@@ -1,0 +1,15 @@
+@use '../support/mixins' as *;
+
+// ---------------------------------------------
+// ======---------------------------------======
+//  Game stats
+// ======---------------------------------======
+// ---------------------------------------------
+.game-stats {
+  display: grid;
+  gap: 2rem;
+
+  @include mqMed {
+    grid-template-columns: repeat(auto-fit, minmax(min(20vw, 200px), auto));
+  }
+}
