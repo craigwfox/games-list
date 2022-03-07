@@ -48,7 +48,9 @@
     <tr>
       <th />
       {#each stats.consoles as gc}
-        <th>{format.shortLabel(gc.label, format.consoleArry)}</th>
+        <th class={`th--${gc.label}`}
+          >{format.shortLabel(gc.label, format.consoleArry)}</th
+        >
       {/each}
     </tr>
   </thead>
@@ -57,7 +59,7 @@
       <tr>
         <th scope="row">{year.label}</th>
         {#each stats.consoles as gc}
-          <td>
+          <td class={`th--${gc.label}`}>
             {#each gc.years as gcYear}
               {#if year.label === gcYear.label}
                 {gcYear.count}
