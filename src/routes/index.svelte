@@ -41,3 +41,31 @@
     {/each}
   </tbody>
 </table>
+
+<h2>Console breakdown</h2>
+<table>
+  <thead>
+    <tr>
+      <th />
+      {#each stats.consoles as gc}
+        <th>{format.shortLabel(gc.label, format.consoleArry)}</th>
+      {/each}
+    </tr>
+  </thead>
+  <tbody>
+    {#each stats.years as year}
+      <tr>
+        <th scope="row">{year.label}</th>
+        {#each stats.consoles as gc}
+          <td>
+            {#each gc.years as gcYear}
+              {#if year.label === gcYear.label}
+                {gcYear.count}
+              {/if}
+            {/each}
+          </td>
+        {/each}
+      </tr>
+    {/each}
+  </tbody>
+</table>
