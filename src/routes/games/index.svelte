@@ -197,6 +197,8 @@
   </div>
 {/if}
 
+<h2>Showing {gamesFiltered.length}</h2>
+
 <ul class="pagination">
   {#each pageCount as pageNum}
     <li>

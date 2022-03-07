@@ -25,6 +25,7 @@ export const get = async () => {
     });
     return [match, pos];
   };
+
   const sortYears = (a, b) => {
     // filter for sorting years
     let c = a.label === 'Legacy' ? '1900' : a.label;
@@ -64,6 +65,10 @@ export const get = async () => {
     });
   }
 
+  // ====---------------====
+  // Get console count
+  // Will be a list of consoles with number of games by year
+  // ====---------------====
   function getConsoleCount(metadata) {
     const gc = metadata.console_settings.console[0];
     const gcYears = metadata.game_info.times_played;
@@ -81,10 +86,32 @@ export const get = async () => {
 
     if (includesChild(playedByConsole, gc)[0]) {
       const gcPos = includesChild(playedByConsole, gc)[1];
+
+      // loop current games years ->
+      // then check that arry of years against the console's years
+      gcYears.forEach((year) => {
+        if (includesChild(playedByConsole[gcPos].years, year.date_year)[0]) {
+          const yearPos = includesChild(
+            playedByConsole[gcPos].years,
+            year.date_year
+          )[1];
+
+          playedByConsole[gcPos].years[yearPos].count++;
+        } else {
+          playedByConsole[gcPos].years.push({
+            label: year.date_year,
+            count: 1
+          });
+        }
+      });
+
+      // bumps total games played on console count
+      playedByConsole[gcPos].total++;
     } else {
       playedByConsole.push({
         label: gc,
-        years: years(1)
+        years: years(1),
+        total: 1
       });
     }
   }
@@ -93,8 +120,11 @@ export const get = async () => {
     iterableGameFiles.map(async ([path, resolver]) => {
       const { metadata } = await resolver();
 
-      getYearCount(metadata);
-      getConsoleCount(metadata);
+      await getYearCount(metadata);
+      await getConsoleCount(metadata);
+      await playedByConsole.forEach((gc) => {
+        gc.years.sort(sortYears);
+      });
     })
   );
 
