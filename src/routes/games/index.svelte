@@ -68,7 +68,7 @@
   function getYears() {
     let yearArry = [];
     // loops over each game, finds the array of timesplayed and then gathers the year while checking against the yearArry
-    gamesFiltered.forEach((game) => {
+    games.forEach((game) => {
       game.meta.game_info.times_played.forEach((timePlayed) => {
         if (!yearArry.includes(timePlayed.date_year))
           yearArry.push(timePlayed.date_year);
@@ -103,7 +103,7 @@
     console.log('getting consoles');
     let gcArry = [];
 
-    gamesFiltered.forEach((game) => {
+    games.forEach((game) => {
       if (!gcArry.includes(game.meta.console_settings.console[0]))
         gcArry.push(game.meta.console_settings.console[0]);
     });
@@ -134,15 +134,13 @@
       currentYear = document.querySelector('#filterByYear').value;
       currentConsole = document.querySelector('#filterByConsole').value;
       filterByYear();
-      getConsoles();
       resolve();
     })
       .then(() => {
         filterByConsole();
-        getYears();
       })
       .then(() => {
-        // countPages();
+        countPages();
       });
   }
 
