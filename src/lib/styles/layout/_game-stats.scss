@@ -13,3 +13,14 @@
     grid-template-columns: repeat(auto-fit, minmax(min(20vw, 200px), auto));
   }
 }
+
+// ====---------------====
+// Bar graph
+// ====---------------====
+.bar-graph {
+  display: grid;
+
+  h3 {
+    font-size: 1.8rem;
+  }
+}

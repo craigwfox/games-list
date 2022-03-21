@@ -53,7 +53,7 @@
 
   <section aria-labelledby="title-console">
     <h2 id="title-console">By Console</h2>
-    <table>
+    <!-- <table>
       <thead>
         <tr>
           <th />
@@ -88,6 +88,12 @@
           {/each}
         </tr>
       </tfoot>
-    </table>
+    </table> -->
+    <div class="bar-graph">
+      {#each stats.consoles as gc}
+        <h3>{format.shortLabel(gc.label, format.consoleArry)}</h3>
+        <h4 data-total={gc.total}>{gc.total}</h4>
+      {/each}
+    </div>
   </section>
 </div>
