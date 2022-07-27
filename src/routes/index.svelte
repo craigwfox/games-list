@@ -1,54 +1,111 @@
-<script>
-  import { seo } from '$lib/store.js';
+<script context="module">
+  export const load = async ({ fetch }) => {
+    const stats = await fetch('/api/stats.json');
+    const allStats = await stats.json();
 
-  console.log('meow');
-  async function getDetails() {
-    console.log('running');
-    try {
-      const response = await fetch(
-        `/netlify/functions/gameDetails?game=astroneer`
-      );
-      // const res = await response.json();
-      // const data = await res;
-      // details = data;
-      console.log(response);
-      return response;
-    } catch (err) {
-      console.log(`Game.svelte: ${err}`);
-    }
+    return {
+      props: {
+        stats: allStats
+      }
+    };
+  };
+</script>
+
+<script>
+  // ====---------------====
+  // Imports
+  // ====---------------====
+  import { seo } from '$lib/store.js';
+  import { format } from '$lib/formating';
+
+  // ====---------------====
+  // Variables
+  // ====---------------====
+  export let stats;
+
+  let statBase = 0;
+  function getTopStat() {
+    stats.consoles.forEach((gc) => {
+      if (gc.total > statBase) statBase = gc.total;
+    });
   }
-  getDetails();
+  getTopStat();
 </script>
 
 <svelte:head>
   <title>Home {seo.title}</title>
 </svelte:head>
 
-<h1 id="recent-games">Recent games</h1>
+<h1 id="recent-games">Game stats</h1>
 
-<section aria-label="Games feed">
-  <div class="game-filters">
-    <div class="form">
-      <label for="sortYear">Sort by year</label>
-      <select name="sortYear" id="sortYear">
-        <option value="all" selected>All</option>
-        <option value="">2021</option>
-      </select>
+<div class="game-stats">
+  <section aria-labelledby="title-year">
+    <h2 id="title-year">By year</h2>
+    <table>
+      <thead>
+        <th>Year</th>
+        <th>Count</th>
+        <th>Goal</th>
+      </thead>
+      <tbody>
+        {#each stats.years as year}
+          <tr>
+            <th scope="row">{year.label}</th>
+            <td>{year.count}</td>
+            <th>--</th>
+          </tr>
+        {/each}
+      </tbody>
+    </table>
+  </section>
+
+  <section aria-labelledby="title-console">
+    <h2 id="title-console">Console total</h2>
+    <!-- <table>
+      <thead>
+        <tr>
+          <th />
+          {#each stats.consoles as gc}
+            <th class={`th--${gc.label}`}
+              >{format.shortLabel(gc.label, format.consoleArry)}</th
+            >
+          {/each}
+        </tr>
+      </thead>
+      <tbody>
+        {#each stats.years as year}
+          <tr>
+            <th scope="row">{year.label}</th>
+            {#each stats.consoles as gc}
+              <td class={`th--${gc.label}`}>
+                {#each gc.years as gcYear}
+                  {#if year.label === gcYear.label}
+                    {gcYear.count}
+                  {/if}
+                {/each}
+              </td>
+            {/each}
+          </tr>
+        {/each}
+      </tbody>
+      <tfoot>
+        <tr>
+          <th scope="row">Total</th>
+          {#each stats.consoles as gc}
+            <td class={`th--${gc.label}`}>{gc.total}</td>
+          {/each}
+        </tr>
+      </tfoot>
+    </table> -->
+    <div class="bar-graph">
+      {#each stats.consoles as gc}
+        <div class="bc--{gc.label}">
+          <h3>{format.shortLabel(gc.label, format.consoleArry)}</h3>
+          <h4 style="height: {(gc.total / statBase) * 100}%;">
+            <span>{gc.total}</span>
+          </h4>
+        </div>
+      {/each}
     </div>
-    <div class="form">
-      <label for="sortConsole">Sort by console</label>
-      <select name="sortConsole" id="sortConsole">
-        <option value="all" selected>All</option>
-        <option value="">SNES</option>
-      </select>
-    </div>
-    <div class="form">
-      <label for="sortRating">Sort by rating</label>
-      <select name="sortRating" id="sortRating">
-        <option value="all" selected>All</option>
-        <option value="">bad</option>
-      </select>
-    </div>
-  </div>
-  <div class="game-wrapper">...</div>
-</section>
+  </section>
+</div>

@@ -31,21 +31,22 @@
   --c-r-goat: 271 73% 72%;
 
   // ===------ Console colors ------===
-  --c-ni: hsl(355, 85%, 32%, 1);
-  --c-ps: hsl(208, 89%, 36%, 1);
-  --c-xb: hsl(89, 62%, 31.5%, 1);
-  --c-pc: hsl(270, 63%, 36%, 1);
-  --c-mo: hsl(298, 53%, 55%, 1);
+  --c-ni: 355 85% 32%;
+  --c-ps: 208 89% 36%;
+  --c-xb: 89 62% 31.5%;
+  --c-pc: 270 63% 36%;
+  --c-mo: 298 53% 55%;
 
   // ====---------------====
   // Type
   // ====---------------====
   --ff-base: 'Rubik', sans-serif;
   --ff-accent: 'Fugaz One', cursive;
-  --fs-xs: clamp(1.3rem, 2.3vw, 1.6rem);
-  --fs-sm: clamp(1.5rem, 2.3vw, 1.8rem);
-  --fs-base: clamp(1.8rem, 2vw, 2.1rem);
-  --fs-lg: clamp(2rem, 5vw, 3rem);
+  --fs-xs: clamp(0.8rem, 2.3vw, 1.2rem);
+  --fs-sm: clamp(1rem, 2.3vw, 1.4rem);
+  --fs-base: clamp(1.2rem, 2vw, 1.6rem);
+  --fs-md: clamp(1.6rem, 2vw, 2rem);
+  --fs-lg: clamp(2rem, 5vw, 2.5rem);
   --fs-xl: clamp(2.5rem, 5vw, 4rem);
 
   // ====---------------====

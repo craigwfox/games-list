@@ -17,6 +17,7 @@
 =======---------------= */
 @use 'bits/game-fitlering';
 @use 'bits/pagination';
+@use 'bits/tables';
 
 /* ====---------------====
   Layout
@@ -26,6 +27,7 @@
 @use 'layout/footer';
 @use 'layout/game-feed';
 @use 'layout/game-details';
+@use 'layout/game-stats';
 
 /* ====---------------====
   Text

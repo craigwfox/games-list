@@ -41,8 +41,9 @@
 // ====---------------====
 html {
   height: 100%;
-  font-size: 10px;
   font-family: var(--ff-base);
+
+  background: hsl(var(--c-bg-alt));
 }
 
 body {

@@ -63,35 +63,18 @@
     curPage = parseInt(pageNum);
   }
 
-  // ====---------------====
-  // Year filtering
-  // ====---------------====
-  // filter for .sort()
-  const sortYears = (a, b) => {
-    let c = a === 'Legacy' ? '1900' : a;
-    let d = b === 'Legacy' ? '1900' : b;
-
-    if (c < d) {
-      return 1;
-    }
-    if (c > d) {
-      return -1;
-    }
-    return 0;
-  };
-
   // set's up an array or years to populate the years array
   $: yearList = [];
   function getYears() {
     let yearArry = [];
     // loops over each game, finds the array of timesplayed and then gathers the year while checking against the yearArry
-    gamesFiltered.forEach((game) => {
+    games.forEach((game) => {
       game.meta.game_info.times_played.forEach((timePlayed) => {
         if (!yearArry.includes(timePlayed.date_year))
           yearArry.push(timePlayed.date_year);
       });
     });
-    yearList = yearArry.sort(sortYears);
+    yearList = yearArry.sort(format.sortYears);
   }
 
   function yearMatch(playArry, checkVal) {
@@ -120,7 +103,7 @@
     console.log('getting consoles');
     let gcArry = [];
 
-    gamesFiltered.forEach((game) => {
+    games.forEach((game) => {
       if (!gcArry.includes(game.meta.console_settings.console[0]))
         gcArry.push(game.meta.console_settings.console[0]);
     });
@@ -151,15 +134,13 @@
       currentYear = document.querySelector('#filterByYear').value;
       currentConsole = document.querySelector('#filterByConsole').value;
       filterByYear();
-      getConsoles();
       resolve();
     })
       .then(() => {
         filterByConsole();
-        getYears();
       })
       .then(() => {
-        // countPages();
+        countPages();
       });
   }
 
@@ -213,6 +194,8 @@
     </div>
   </div>
 {/if}
+
+<h2>Showing {gamesFiltered.length}</h2>
 
 <ul class="pagination">
   {#each pageCount as pageNum}

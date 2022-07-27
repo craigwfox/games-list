@@ -1,0 +1,85 @@
+@use '../support/mixins' as *;
+
+// ---------------------------------------------
+// ======---------------------------------======
+//  Game stats
+// ======---------------------------------======
+// ---------------------------------------------
+.game-stats {
+  display: grid;
+  gap: 2rem;
+
+  @include mqMed {
+    grid-template-columns: repeat(auto-fit, minmax(min(20vw, 200px), auto));
+  }
+}
+
+// ====---------------====
+// Bar graph
+// ====---------------====
+.bar-graph {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(4rem, 1fr));
+  gap: 0.5rem;
+  align-items: end;
+
+  padding-top: 2rem;
+
+  div {
+    height: 10rem;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: end;
+
+    position: relative;
+
+    background: hsl(var(--c-bg-alt));
+
+    &[class*='bc--n'] h4 {
+      background: hsl(var(--c-ni) / 0.5);
+    }
+
+    &[class*='bc--ps'] h4 {
+      background: hsl(var(--c-ps) / 0.5);
+    }
+
+    &[class*='bc--x'] h4 {
+      background: hsl(var(--c-xb) / 0.5);
+    }
+
+    &[class*='bc--pc'] h4 {
+      background: hsl(var(--c-pc) / 0.5);
+    }
+
+    &[class*='bc--mo'] h4 {
+      background: hsl(var(--c-mo) / 0.5);
+    }
+  }
+
+  h3 {
+    order: 2;
+
+    font-size: var(--fs-sm);
+  }
+
+  h4 {
+    width: 100%;
+
+    order: 1;
+    display: grid;
+    justify-content: center;
+
+    position: relative;
+
+    background: red;
+
+    font-size: var(--fs-sm);
+
+    span {
+      position: relative;
+      top: -1.5rem;
+    }
+  }
+}

@@ -1,0 +1,114 @@
+// ---------------------------------------------
+// ======---------------------------------======
+//  Tables
+// ======---------------------------------======
+// ---------------------------------------------
+
+table {
+  margin-top: 0.7rem;
+  margin-bottom: 2.5rem;
+
+  border-collapse: collapse;
+
+  th {
+    font-weight: 700;
+  }
+
+  th,
+  td {
+    padding: 1rem 2rem;
+
+    border-bottom: 0.2rem solid hsl(var(--c-secondary) / 0.4);
+    border-top: 0.2rem solid hsl(var(--c-secondary) / 0.4);
+    border-right: 0.2rem solid hsl(var(--c-bg-alt));
+
+    text-align: center;
+
+    &:last-child {
+      border-right: 0;
+    }
+  }
+
+  thead {
+    th {
+      background: hsl(var(--c-bg-alt));
+      border-color: hsl(var(--c-bright) / 0.4);
+
+      &[class*='th--n'] {
+        background: hsl(var(--c-ni) / 0.5);
+      }
+
+      &[class*='th--ps'] {
+        background: hsl(var(--c-ps) / 0.5);
+      }
+
+      &[class*='th--x'] {
+        background: hsl(var(--c-xb) / 0.5);
+      }
+
+      &[class*='th--pc'] {
+        background: hsl(var(--c-pc) / 0.5);
+      }
+
+      &[class*='th--mo'] {
+        background: hsl(var(--c-mo) / 0.5);
+      }
+    }
+  }
+
+  tbody {
+    th,
+    td {
+      &[class*='th--n'] {
+        background: hsl(var(--c-ni) / 0.2);
+      }
+
+      &[class*='th--ps'] {
+        background: hsl(var(--c-ps) / 0.2);
+      }
+
+      &[class*='th--x'] {
+        background: hsl(var(--c-xb) / 0.2);
+      }
+
+      &[class*='th--pc'] {
+        background: hsl(var(--c-pc) / 0.2);
+      }
+
+      &[class*='th--mo'] {
+        background: hsl(var(--c-mo) / 0.2);
+      }
+
+      &:empty {
+        background: none;
+      }
+
+      &:first-child {
+        text-align: left;
+      }
+    }
+
+    tr {
+      background: hsl(var(--c-bg-alt) / 0.2);
+
+      &:nth-child(odd) {
+        background: hsl(var(--c-bg-alt) / 0.5);
+      }
+    }
+  }
+
+  tfoot {
+    --border-clr: hsl(var(--c-bright) / 0.4);
+    tr {
+      background: var(--border-clr);
+
+      th,
+      td {
+        border-color: var(--border-clr);
+
+        font-size: var(--fs-md);
+        font-weight: 700;
+      }
+    }
+  }
+}
