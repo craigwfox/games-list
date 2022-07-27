@@ -22,6 +22,14 @@
   // Variables
   // ====---------------====
   export let stats;
+
+  let statBase = 0;
+  function getTopStat() {
+    stats.consoles.forEach((gc) => {
+      if (gc.total > statBase) statBase = gc.total;
+    });
+  }
+  getTopStat();
 </script>
 
 <svelte:head>
@@ -52,7 +60,7 @@
   </section>
 
   <section aria-labelledby="title-console">
-    <h2 id="title-console">By Console</h2>
+    <h2 id="title-console">Console total</h2>
     <!-- <table>
       <thead>
         <tr>
@@ -91,8 +99,12 @@
     </table> -->
     <div class="bar-graph">
       {#each stats.consoles as gc}
-        <h3>{format.shortLabel(gc.label, format.consoleArry)}</h3>
-        <h4 data-total={gc.total}>{gc.total}</h4>
+        <div class="bc--{gc.label}">
+          <h3>{format.shortLabel(gc.label, format.consoleArry)}</h3>
+          <h4 style="height: {(gc.total / statBase) * 100}%;">
+            <span>{gc.total}</span>
+          </h4>
+        </div>
       {/each}
     </div>
   </section>

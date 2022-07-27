@@ -18,9 +18,15 @@ table {
   td {
     padding: 1rem 2rem;
 
-    border: 0.2rem solid hsl(var(--c-secondary) / 0.4);
+    border-bottom: 0.2rem solid hsl(var(--c-secondary) / 0.4);
+    border-top: 0.2rem solid hsl(var(--c-secondary) / 0.4);
+    border-right: 0.2rem solid hsl(var(--c-bg-alt));
 
     text-align: center;
+
+    &:last-child {
+      border-right: 0;
+    }
   }
 
   thead {
